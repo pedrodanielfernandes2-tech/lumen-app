@@ -1,8 +1,8 @@
 {
-  "versao": "10.4",
-  "arquivo": "lumen-10.4.pacote",
-  "sha256": "ba91b601f7d08330451f6bc85efac2a19245865ba2c2100ecfa012793ef114f5",
-  "assinatura": "8RqKa-tFe0TExKxiepbf0j93bRqfbzGNwk_WDaVcX9Xlz1FZib9rzdOHQkcxhD98VZvR-w18PUV31kiowLHjCA",
-  "notas": "Atualização automática: o Lumen passa a se atualizar sozinho.",
+  "versao": "10.5",
+  "arquivo": "lumen-10.5.pacote",
+  "sha256": "d53adb6f37ca6d2458a230c3fd341604c4f42ce5d90c6668260e85513bbe64e1",
+  "assinatura": "tJEJ-bVhvfcWOpmdcxPRDN80yQGz-XK3gRsFu21WkdJmjV6F7M61qcL277JLg0_pzraSo6kHJXZW9e7xAoXbCg",
+  "notas": "Corrige a versão e o botão Procurar atualização na tela de atalhos (F1).",
   "publicado": "2026-10-20"
 }
