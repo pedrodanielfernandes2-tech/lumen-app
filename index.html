@@ -95,6 +95,32 @@ form{display:flex;flex-direction:column;gap:10px;margin:0}
 .spin{width:22px;height:22px;border:3px solid var(--line);border-top-color:var(--accent);border-radius:50%;animation:g 0.8s linear infinite;margin:30px auto}
 @keyframes g{to{transform:rotate(360deg)}}
 .unit{font-size:13px;color:var(--muted);margin:2px 2px -6px}
+.tabs .bd{display:inline-block;min-width:18px;height:18px;border-radius:9px;background:var(--gold);color:#1d1a26;font-size:11px;font-weight:800;line-height:18px;margin-left:5px;padding:0 5px}
+/* calendário */
+.mhead{display:flex;align-items:center;gap:8px}
+.mhead b{flex:1;text-align:center;font-size:18px;text-transform:capitalize}
+.mhead button{width:42px;height:38px;padding:0;font-size:20px;border-radius:12px}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.cal .wd{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;padding:2px 0}
+.cal .d{aspect-ratio:1/1;max-height:46px;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:14px;position:relative;border:0;padding:0;background:none;color:var(--fg)}
+.cal .d.out{visibility:hidden}
+.cal .d.has{background:var(--q-bg);font-weight:700}
+.cal .d.has::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--muted);position:absolute;bottom:5px}
+.cal .d.eu{background:var(--accent);color:var(--accent-fg)}
+.cal .d.eu::after{background:var(--accent-fg)}
+.cal .d.pend{box-shadow:inset 0 0 0 2px var(--gold)}
+.cal .d.hoje{outline:2px solid var(--fg);outline-offset:-2px}
+.cal .d.past{opacity:.45}
+.leg{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted)}
+.leg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+.banner{display:flex;gap:10px;align-items:center;border-radius:14px;padding:12px 14px;background:color-mix(in srgb,var(--gold) 18%,var(--panel));border:1px solid color-mix(in srgb,var(--gold) 45%,transparent);font-size:14px}
+.banner p{margin:0;flex:1}
+.banner button{padding:8px 12px;font-size:14px}
+.eq .c.past{opacity:.55}
+.eq .c.sel{background:color-mix(in srgb,var(--accent) 10%,transparent);margin:0 -16px;padding-left:16px;padding-right:16px}
+.push{display:flex;flex-wrap:wrap;gap:10px;align-items:center;border-radius:16px;padding:14px;background:var(--panel);border:1px solid var(--accent)}
+.push div{flex:1;min-width:200px}
+.push p{margin:4px 0 0;font-size:13px;color:var(--muted)}
 [hidden]{display:none!important}
 </style>
 </head>
@@ -147,15 +173,16 @@ form{display:flex;flex-direction:column;gap:10px;margin:0}
   <!-- app -->
   <section id="vApp" hidden>
     <nav class="tabs" role="tablist">
-      <button type="button" role="tab" data-t="me" aria-selected="true">Minhas</button>
-      <button type="button" role="tab" data-t="eq" aria-selected="false">Equipe</button>
+      <button type="button" role="tab" data-t="mes" aria-selected="true">Mês</button>
+      <button type="button" role="tab" data-t="me" aria-selected="false">Minhas<span class="bd" id="bdMe" hidden></span></button>
       <button type="button" role="tab" data-t="fo" aria-selected="false">Não posso</button>
     </nav>
-    <div id="tMe" style="display:flex;flex-direction:column;gap:12px"></div>
-    <div id="tEq" hidden></div>
+    <div class="push" id="push" hidden><div><b id="pushT">🔔 Receba os avisos da escala</b><p id="pushP">Ative para saber na hora quando for escalado(a), quando algo mudar e na véspera.</p></div><button type="button" class="primary" id="bPush">Ativar avisos</button><button type="button" class="link" id="bPushX" aria-label="Agora não">✕</button></div>
+    <div id="tMes" style="display:flex;flex-direction:column;gap:12px"></div>
+    <div id="tMe" hidden style="display:flex;flex-direction:column;gap:12px"></div>
     <div id="tFo" hidden style="display:flex;flex-direction:column;gap:12px"></div>
     <div class="inst" id="inst" hidden><p id="instT"></p><button type="button" id="bInst" hidden>Instalar</button><button type="button" class="link" id="bInstX" aria-label="Fechar">✕</button></div>
-    <div class="foot"><span class="note" id="fEm"></span><button type="button" class="link" id="bSair">Sair</button></div>
+    <div class="foot"><span class="note" id="fEm"></span><span><button type="button" class="link" id="bAvisos" hidden>Avisos: ligados</button> <button type="button" class="link" id="bSair">Sair</button></span></div>
     <p class="msg" id="appMsg" role="status"></p>
   </section>
 </div>
@@ -175,7 +202,11 @@ form{display:flex;flex-direction:column;gap:10px;margin:0}
   const hr=h=>{if(!h)return "";const a=h.split(":");return (+a[0])+"h"+(a[1]&&a[1]!=="00"?a[1]:"")};
   const dLong=s=>{const d=pd(s);return DA[d.getDay()]+" "+String(d.getDate()).padStart(2,"0")+"/"+String(d.getMonth()+1).padStart(2,"0")};
   const quando=s=>{const d=pd(s),t=new Date();t.setHours(0,0,0,0);const n=Math.round((d-t)/864e5);return n===0?"hoje":n===1?"amanhã":n>1&&n<7?DL[d.getDay()]:"dia "+d.getDate()+" de "+MES[d.getMonth()]};
-  let S=null, ME=[], ESC=[], tab="me", busy=false;
+  let S=null, ME=[], ESC=[], tab=/minhas/.test(location.hash)?"me":"mes", busy=false;
+  const VAPID="BFOvUJ5C0VRz9mvkaIR3xvqKyxbZCO8Y6-QUAqx-Z9ppyH5ZI3aq4OWyrjPzUR8unOZ3FvBZt3KV977iZR69mww";
+  const MESL=["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+  let MV=(()=>{const d=new Date();return {y:d.getFullYear(),m:d.getMonth()}})(), MC={}, selDia="";
+  const mKey=()=>MV.y+"-"+String(MV.m+1).padStart(2,"0");
 
   /* ---------- conta ---------- */
   const sGet=()=>{try{return JSON.parse(localStorage.getItem(SK)||"null")}catch(e){return null}};
@@ -217,6 +248,7 @@ form{display:flex;flex-direction:column;gap:10px;margin:0}
     recovery=p.get("type")==="recovery";
     history.replaceState(null,"",location.pathname+location.search);
   })();
+  if(/^#minhas/.test(location.hash)) history.replaceState(null,"",location.pathname+location.search);
 
   function show(v){["vLoad","vAuth","vNada","vApp"].forEach(k=>$(k).hidden=k!==v);$("bRef").hidden=v!=="vApp"}
   function authMode(m){
@@ -250,7 +282,7 @@ form{display:flex;flex-direction:column;gap:10px;margin:0}
     try{await api("/auth/v1/user",{method:"PUT",body:JSON.stringify({password:$("nvPw").value})});$("nvPw").value="";recovery=false;await carregar()}
     catch(x){say("aMsg",pt(x),true)}
   });
-  function sair(){const s=sGet();sPut(null);if(s)fetch(URL0+"/auth/v1/logout",{method:"POST",headers:{apikey:KEY,Authorization:"Bearer "+s.access_token}}).catch(()=>0);ME=[];ESC=[];authMode("in");show("vAuth")}
+  async function sair(){try{const sub=await pushSub();if(sub){await rpc("remover_assinatura",{p_endpoint:sub.endpoint}).catch(()=>0);await sub.unsubscribe()}}catch(e){}pushOn=false;MC={};const s=sGet();sPut(null);if(s)fetch(URL0+"/auth/v1/logout",{method:"POST",headers:{apikey:KEY,Authorization:"Bearer "+s.access_token}}).catch(()=>0);ME=[];ESC=[];authMode("in");show("vAuth")}
   $("bSair").onclick=sair; $("bSair2").onclick=sair;
 
   /* ---------- dados ---------- */
@@ -266,15 +298,21 @@ form{display:flex;flex-direction:column;gap:10px;margin:0}
         $("nadaT").innerHTML="A sua conta <b>"+esc(s.email)+"</b> ainda não está ligada a nenhuma escala. Peça ao responsável pela escala para colocar <b>exatamente esse e-mail</b> no seu cadastro no Lumen. Depois toque em Tentar de novo.";
         $("nadaEm").textContent=s.email||""; show("vNada"); return;
       }
-      ESC=await rpc("minha_escala")||[];
-      S=s; render(); show("vApp"); say("appMsg","");
+      const [a,b]=await Promise.all([rpc("minha_escala"),carregarMes(true)]);
+      ESC=a||[]; void b;
+      S=s; render(); show("vApp"); say("appMsg",""); pushSync();
     }catch(x){
       if(x.sessao){show("vAuth");authMode("in");say("aMsg","Entre de novo na sua conta.");}
       else if(S){say("appMsg",pt(x),true)}
       else{show("vAuth");authMode("in");say("aMsg",pt(x),true)}
     }finally{busy=false}
   }
-  $("bRef").onclick=()=>carregar(true); $("bNada").onclick=()=>carregar();
+  async function carregarMes(force){
+    const k=mKey(); if(MC[k]&&!force) return MC[k];
+    const de=new Date(MV.y,MV.m,1), ate=new Date(MV.y,MV.m+1,0);
+    MC[k]=await rpc("minha_escala",{p_de:ymd(de),p_ate:ymd(ate)})||[]; return MC[k];
+  }
+  $("bRef").onclick=()=>{MC={};carregar(true)}; $("bNada").onclick=()=>carregar();
   document.addEventListener("visibilitychange",()=>{if(!document.hidden&&S&&sGet())carregar(true)});
 
   /* ---------- telas ---------- */
@@ -286,8 +324,10 @@ form{display:flex;flex-direction:column;gap:10px;margin:0}
     $("hS").textContent=[...new Set(ME.map(m=>m.igreja+" · "+m.unidade))].join(" / ");
     $("fEm").textContent=S.email||"";
     document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.t===tab)));
-    $("tMe").hidden=tab!=="me"; $("tEq").hidden=tab!=="eq"; $("tFo").hidden=tab!=="fo";
-    renderMe(); renderEq(); renderFo(); instUI();
+    $("tMe").hidden=tab!=="me"; $("tMes").hidden=tab!=="mes"; $("tFo").hidden=tab!=="fo";
+    const hoje=ymd(new Date()), np=ESC.filter(x=>x.minha&&!x.cancelado&&x.status==="?"&&x.data>=hoje).length;
+    $("bdMe").hidden=!np; $("bdMe").textContent=np;
+    renderMe(); renderMes(); renderFo(); instUI(); pushUI();
   }
   document.querySelector(".tabs").addEventListener("click",e=>{const b=e.target.closest("button[data-t]");if(b){tab=b.dataset.t;say("appMsg","");render();window.scrollTo(0,0)}});
   function renderMe(){
@@ -311,20 +351,43 @@ form{display:flex;flex-direction:column;gap:10px;margin:0}
   $("tMe").addEventListener("click",async e=>{
     const b=e.target.closest("button[data-s]"); if(!b) return;
     const c=b.closest(".vaga"), x=ESC.find(v=>v.unidade_id===c.dataset.u&&v.escala_id===c.dataset.e); if(!x) return;
-    const old=x.status; x.status=b.dataset.s; renderMe(); renderEq();
+    const old=x.status; x.status=b.dataset.s; Object.values(MC).forEach(L=>L.forEach(v=>{if(v.unidade_id===x.unidade_id&&v.escala_id===x.escala_id)v.status=x.status})); render();
     try{await rpc("responder",{p_unidade:x.unidade_id,p_escala:x.escala_id,p_status:x.status});say("appMsg",x.status==="ok"?"Obrigado! Sua confirmação foi enviada.":x.status==="no"?"Pronto. Quem monta a escala já vê que você não pode.":"")}
-    catch(err){x.status=old;renderMe();renderEq();say("appMsg",pt(err),true)}
+    catch(err){x.status=old;Object.values(MC).forEach(L=>L.forEach(v=>{if(v.unidade_id===x.unidade_id&&v.escala_id===x.escala_id)v.status=old}));render();say("appMsg",pt(err),true)}
   });
-  function renderEq(){
-    const box=$("tEq"), hoje=ymd(new Date()), g=new Map();
-    ESC.filter(x=>x.data>=hoje).forEach(x=>{const k=x.unidade_id+"|"+x.data+"|"+(x.hora||"")+"|"+(x.culto||"");if(!g.has(k))g.set(k,[]);g.get(k).push(x)});
-    if(!g.size){box.innerHTML='<div class="card vazio">Ainda não há escala publicada para as próximas semanas.</div>';return}
-    let h='<div class="card eq">';
-    g.forEach(L=>{const x=L[0];
-      h+='<div class="c'+(x.cancelado?" cx":"")+'"><h4>'+dLong(x.data)+(x.hora?" · "+hr(x.hora):"")+' <small>'+esc(x.culto||"Culto")+(multi()?" · "+esc(uNome(x.unidade_id)):"")+(x.cancelado?" · cancelado":"")+'</small></h4>'
-        +L.map(v=>'<div class="l'+(v.minha?" eu":"")+'"><span>'+esc(v.funcao)+'</span><span>'+esc(v.minha?"Você":(v.pessoa||"—"))+(v.status==="ok"?'<i class="ok" title="confirmou">✓</i>':v.status==="no"?'<i class="no" title="não pode">✗</i>':"")+'</span></div>').join("")+'</div>'});
-    box.innerHTML=h+'</div>';
+  function renderMes(){
+    const box=$("tMes"), hoje=ymd(new Date()), L=MC[mKey()]||[];
+    const np=ESC.filter(x=>x.minha&&!x.cancelado&&x.status==="?"&&x.data>=hoje).length;
+    let h=np?'<div class="banner"><p>Você tem <b>'+np+(np>1?" vagas":" vaga")+'</b> esperando a sua resposta.</p><button type="button" class="primary" data-go="me">Responder</button></div>':"";
+    h+='<div class="card"><div class="mhead"><button type="button" data-m="-1" aria-label="Mês anterior">‹</button><b>'+MESL[MV.m]+" "+MV.y+'</b><button type="button" data-m="1" aria-label="Próximo mês">›</button></div>';
+    const dias={}; L.forEach(x=>{const d=dias[x.data]=dias[x.data]||{has:0,eu:0,pend:0};d.has=1;if(x.minha&&!x.cancelado){d.eu=1;if(x.status==="?"&&x.data>=hoje)d.pend=1}});
+    h+='<div class="cal">'+DA.map(d=>'<span class="wd">'+d[0]+'</span>').join("");
+    const first=new Date(MV.y,MV.m,1).getDay(), last=new Date(MV.y,MV.m+1,0).getDate();
+    for(let k=0;k<first;k++) h+='<span class="d out"></span>';
+    for(let d=1;d<=last;d++){const ds=ymd(new Date(MV.y,MV.m,d)),i=dias[ds]||{};
+      const cl=["d",i.has?"has":"",i.eu?"eu":"",i.pend?"pend":"",ds===hoje?"hoje":"",ds<hoje?"past":""].join(" ");
+      h+=i.has?'<button type="button" class="'+cl+'" data-dia="'+ds+'" aria-label="'+dLong(ds)+(i.eu?", você está escalado(a)":"")+'">'+d+'</button>':'<span class="'+cl+'">'+d+'</span>'}
+    h+='</div><div class="leg"><span><i style="background:var(--accent)"></i>Você serve</span><span><i style="background:var(--q-bg)"></i>Tem culto</span><span><i style="box-shadow:inset 0 0 0 2px var(--gold)"></i>Falta responder</span></div></div>';
+    const g=new Map();
+    L.forEach(x=>{const k=x.unidade_id+"|"+x.data+"|"+(x.hora||"")+"|"+(x.culto||"");if(!g.has(k))g.set(k,[]);g.get(k).push(x)});
+    if(!g.size) h+='<div class="card vazio">Nenhuma escala publicada para '+MESL[MV.m]+'.</div>';
+    else{
+      h+='<h2>Equipe no mês</h2><div class="card eq">';
+      g.forEach(G=>{const x=G[0];
+        h+='<div class="c'+(x.cancelado?" cx":"")+(x.data<hoje?" past":"")+(x.data===selDia?" sel":"")+'" id="dia-'+x.data+'"><h4>'+dLong(x.data)+(x.hora?" · "+hr(x.hora):"")+' <small>'+esc(x.culto||"Culto")+(multi()?" · "+esc(uNome(x.unidade_id)):"")+(x.cancelado?" · cancelado":"")+(x.data===hoje?" · hoje":"")+'</small></h4>'
+          +G.map(v=>'<div class="l'+(v.minha?" eu":"")+'"><span>'+esc(v.funcao)+'</span><span>'+esc(v.minha?"Você":(v.pessoa||"—"))+(v.status==="ok"?'<i class="ok" title="confirmou">✓</i>':v.status==="no"?'<i class="no" title="não pode">✗</i>':"")+'</span></div>').join("")+'</div>'});
+      h+='</div>';
+    }
+    box.innerHTML=h;
   }
+  $("tMes").addEventListener("click",async e=>{
+    const go=e.target.closest("[data-go]"); if(go){tab=go.dataset.go;render();window.scrollTo(0,0);return}
+    const dia=e.target.closest("[data-dia]"); if(dia){selDia=dia.dataset.dia;renderMes();const el=$("dia-"+selDia);if(el)el.scrollIntoView({behavior:"smooth",block:"center"});return}
+    const m=e.target.closest("[data-m]"); if(!m) return;
+    const d=new Date(MV.y,MV.m+(+m.dataset.m),1); MV={y:d.getFullYear(),m:d.getMonth()}; selDia="";
+    if(!MC[mKey()]){$("tMes").querySelector(".mhead b").textContent="Carregando…";try{await carregarMes()}catch(err){say("appMsg",pt(err),true)}}
+    renderMes();
+  });
   function renderFo(){
     const box=$("tFo"), hoje=ymd(new Date());
     let h='<h2>Dias em que não posso</h2><div class="card"><p class="note">Marque aqui os dias em que você não pode servir. Quem monta a escala já vê e não coloca você nesses dias.</p>';
@@ -346,6 +409,46 @@ form{display:flex;flex-direction:column;gap:10px;margin:0}
     try{m.folgas=await rpc("minhas_folgas",{p_unidade:u,p_folgas:f})||[];renderFo();say("appMsg","Salvo.")}
     catch(err){m.folgas=old;renderFo();say("appMsg",pt(err),true)}
   });
+
+  /* ---------- avisos no celular (Web Push) ---------- */
+  const b64u=s=>{const p="=".repeat((4-s.length%4)%4),b=atob((s+p).replace(/-/g,"+").replace(/_/g,"/"));return Uint8Array.from(b,c=>c.charCodeAt(0))};
+  const pushPode=()=>"serviceWorker" in navigator&&"PushManager" in window&&"Notification" in window&&/^https:|^http:\/\/localhost/.test(location.href);
+  const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
+  const pushX=()=>{try{return localStorage.getItem("minha-escala-push-x")==="1"}catch(e){return false}};
+  let pushOn=false;
+  async function pushSub(){if(!pushPode())return null;const r=await navigator.serviceWorker.ready;return r.pushManager.getSubscription()}
+  async function pushSalvar(sub){const j=sub.toJSON();await rpc("salvar_assinatura",{p_endpoint:j.endpoint,p_p256dh:j.keys.p256dh,p_auth:j.keys.auth})}
+  async function pushSync(){ /* celular já autorizado: garante que a conta conhece este aparelho */
+    try{if(!pushPode()||Notification.permission!=="granted"){pushOn=false;pushUI();return}
+      let sub=await pushSub(); if(!sub) sub=(await navigator.serviceWorker.ready).pushManager.subscribe({userVisibleOnly:true,applicationServerKey:b64u(VAPID)});
+      sub=await sub; await pushSalvar(sub); pushOn=true}catch(e){pushOn=false}
+    pushUI();
+  }
+  function pushUI(){
+    const c=$("push"), lig=$("bAvisos");
+    lig.hidden=!pushOn;
+    if(pushOn||pushX()){c.hidden=true;return}
+    if(!pushPode()){
+      if(isIOS&&!standalone()){c.hidden=false;$("pushT").textContent="🔔 Quer receber os avisos?";$("pushP").innerHTML="No iPhone, primeiro coloque o app na tela inicial: toque em <b>Compartilhar</b> e depois em <b>Adicionar à Tela de Início</b>. Abra por lá e ative os avisos.";$("bPush").hidden=true;return}
+      c.hidden=true;return}
+    $("bPush").hidden=false;
+    if(Notification.permission==="denied"){c.hidden=false;$("pushT").textContent="🔕 Os avisos estão bloqueados";$("pushP").textContent="Libere as notificações deste app nas configurações do celular (ou do navegador) e toque em Tentar de novo.";$("bPush").textContent="Tentar de novo";return}
+    c.hidden=false;$("pushT").textContent="🔔 Receba os avisos da escala";$("pushP").textContent="Ative para saber na hora quando for escalado(a), quando algo mudar e na véspera.";$("bPush").textContent="Ativar avisos";
+  }
+  $("bPush").onclick=async()=>{
+    try{
+      const p=await Notification.requestPermission();
+      if(p!=="granted"){pushUI();say("appMsg",p==="denied"?"Os avisos ficaram bloqueados. Dá para liberar depois nas configurações.":"Tudo bem, dá para ativar depois.");return}
+      const reg=await navigator.serviceWorker.ready;
+      const sub=(await reg.pushManager.getSubscription())||await reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:b64u(VAPID)});
+      await pushSalvar(sub); pushOn=true; pushUI(); say("appMsg","Pronto! Você vai receber os avisos da escala neste celular.");
+    }catch(e){say("appMsg","Não consegui ativar os avisos: "+pt(e),true)}
+  };
+  $("bPushX").onclick=()=>{try{localStorage.setItem("minha-escala-push-x","1")}catch(e){}pushUI()};
+  $("bAvisos").onclick=async()=>{ /* desligar neste celular */
+    try{const sub=await pushSub();if(sub){await rpc("remover_assinatura",{p_endpoint:sub.endpoint}).catch(()=>0);await sub.unsubscribe()}}catch(e){}
+    pushOn=false;try{localStorage.removeItem("minha-escala-push-x")}catch(e){}pushUI();say("appMsg","Avisos desligados neste celular.");
+  };
 
   /* ---------- instalar no celular ---------- */
   let promptEv=null;
