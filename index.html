@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Minha escala</title>
+<meta name="description" content="Veja e confirme a sua escala na igreja.">
+<meta name="theme-color" content="#14111c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Minha escala">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+:root{
+  --bg:#f4f2f7;--panel:#ffffff;--fg:#1d1a26;--muted:#6b6577;--line:#e2dde9;
+  --accent:#5b3fd1;--accent-fg:#fff;--gold:#e0a21c;--ok:#1d7a46;--ok-bg:#e3f4ea;--no:#b4232f;--no-bg:#fbe7e9;--q-bg:#f1eef6;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#14111c;--panel:#1d1928;--fg:#ece8f5;--muted:#a39cb3;--line:#332d42;
+  --accent:#9b84ff;--accent-fg:#14111c;--ok:#5fd08e;--ok-bg:#183326;--no:#ff7b85;--no-bg:#3a1c22;--q-bg:#26213a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14111c;--panel:#1d1928;--fg:#ece8f5;--muted:#a39cb3;--line:#332d42;
+  --accent:#9b84ff;--accent-fg:#14111c;--ok:#5fd08e;--ok-bg:#183326;--no:#ff7b85;--no-bg:#3a1c22;--q-bg:#26213a;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;-webkit-text-size-adjust:100%}
+body{min-height:100vh;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+.wrap{max-width:560px;margin:0 auto;padding:14px 16px 40px;display:flex;flex-direction:column;gap:14px}
+header.top{display:flex;align-items:center;gap:10px;padding:6px 0}
+header.top .logo{width:30px;height:23px;color:var(--fg);flex:none}
+header.top h1{font-size:19px;margin:0;font-weight:700;letter-spacing:-.01em;flex:1;min-width:0}
+header.top h1 small{display:block;font-size:12px;font-weight:500;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+button{font:inherit;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 14px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+button:active{transform:scale(.98)}
+button.primary{background:var(--accent);color:var(--accent-fg);border-color:var(--accent);font-weight:600}
+button.link{border:0;background:none;padding:6px 2px;color:var(--accent);font-weight:600}
+button:disabled{opacity:.5}
+input{font:inherit;color:var(--fg);background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 13px;width:100%}
+input:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.note{font-size:14px;color:var(--muted);margin:0}
+.msg{font-size:14px;margin:0;min-height:1em}
+.msg.err{color:var(--no)}
+h2{font-size:15px;margin:6px 2px 0;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.seg{display:flex;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.seg button{flex:1;border:0;border-radius:0;background:none;padding:10px}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-fg);font-weight:600}
+form{display:flex;flex-direction:column;gap:10px;margin:0}
+.hero{padding:26px 4px 6px;display:flex;flex-direction:column;gap:6px}
+.hero h2{font-size:26px;color:var(--fg);text-transform:none;letter-spacing:-.02em;margin:0}
+/* vagas */
+.vaga{display:grid;grid-template-columns:62px 1fr;gap:12px;align-items:start}
+.dia{border-radius:14px;background:var(--q-bg);text-align:center;padding:8px 4px;line-height:1.1}
+.dia b{display:block;font-size:24px}
+.dia span{font-size:12px;color:var(--muted);text-transform:uppercase;font-weight:600}
+.vaga h3{margin:0;font-size:17px}
+.vaga .q{font-size:14px;color:var(--muted)}
+.vaga .fn{display:inline-block;margin-top:4px;font-weight:700;color:var(--accent)}
+.vaga .obs{font-size:13px;color:var(--gold);font-weight:600}
+.acts{grid-column:1 / -1;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.acts button{padding:12px}
+.acts .sim{background:var(--ok-bg);border-color:transparent;color:var(--ok);font-weight:700}
+.acts .nao{background:var(--no-bg);border-color:transparent;color:var(--no);font-weight:700}
+.st{grid-column:1 / -1;display:flex;align-items:center;gap:10px;border-radius:12px;padding:10px 12px;font-weight:600}
+.st.ok{background:var(--ok-bg);color:var(--ok)}
+.st.no{background:var(--no-bg);color:var(--no)}
+.st button{margin-left:auto;padding:6px 10px;font-size:13px;background:transparent;border-color:currentColor;color:inherit;font-weight:600}
+.canc{grid-column:1 / -1;border-radius:12px;padding:10px 12px;background:var(--q-bg);color:var(--muted);font-weight:600}
+.vazio{text-align:center;color:var(--muted);padding:18px 8px}
+/* equipe */
+.eq{display:flex;flex-direction:column;gap:0}
+.eq .c{padding:12px 0;border-top:1px solid var(--line)}
+.eq .c:first-child{border-top:0;padding-top:2px}
+.eq .c h4{margin:0 0 6px;font-size:15px}
+.eq .c h4 small{color:var(--muted);font-weight:500}
+.eq .l{display:flex;justify-content:space-between;gap:12px;font-size:14px;padding:2px 0}
+.eq .l span:first-child{color:var(--muted)}
+.eq .l.eu span:last-child{color:var(--accent);font-weight:700}
+.eq .l i{font-style:normal;font-weight:700;margin-left:6px}
+.eq .l i.ok{color:var(--ok)}.eq .l i.no{color:var(--no)}
+.eq .c.cx h4{text-decoration:line-through;color:var(--muted)}
+/* folgas */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:6px 6px 6px 12px;font-size:14px}
+.chip button{border:0;padding:2px 8px;border-radius:999px;background:var(--q-bg);font-size:14px}
+.addf{display:flex;gap:8px}
+.addf input{flex:1}
+.tabs{display:flex;gap:6px;position:sticky;top:0;z-index:2;background:var(--bg);padding:6px 0}
+.tabs button{flex:1;padding:9px 6px;font-size:14px;border-radius:999px}
+.tabs button[aria-selected="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg);font-weight:600}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:center}
+.inst{border:1px dashed var(--line);border-radius:14px;padding:12px 14px;font-size:14px;display:flex;gap:10px;align-items:center}
+.inst p{margin:0;flex:1}
+.spin{width:22px;height:22px;border:3px solid var(--line);border-top-color:var(--accent);border-radius:50%;animation:g 0.8s linear infinite;margin:30px auto}
+@keyframes g{to{transform:rotate(360deg)}}
+.unit{font-size:13px;color:var(--muted);margin:2px 2px -6px}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <svg class="logo" viewBox="0 0 120 90" aria-hidden="true"><rect x="8" y="12" width="104" height="66" rx="13" fill="none" stroke="currentColor" stroke-width="9"/><path d="M60 22 C62 37 64 41 78 45 C64 49 62 53 60 68 C58 53 56 49 42 45 C56 41 58 37 60 22 Z" fill="#e0a21c"/></svg>
+    <h1 id="hT">Minha escala<small id="hS">Lumen</small></h1>
+    <button type="button" class="link" id="bRef" hidden aria-label="Atualizar">Atualizar</button>
+  </header>
+
+  <div id="vLoad"><div class="spin" role="status" aria-label="Carregando"></div></div>
+
+  <!-- entrar / criar conta -->
+  <section id="vAuth" hidden>
+    <div class="hero"><h2>Sua escala na palma da mão</h2><p class="note">Veja quando você serve, confirme com um toque e avise os dias em que não pode.</p></div>
+    <div class="card">
+      <div class="seg" role="group" aria-label="Entrar ou criar conta"><button type="button" data-a="in" aria-pressed="true">Entrar</button><button type="button" data-a="up" aria-pressed="false">Criar conta</button></div>
+      <form id="fIn">
+        <input type="email" id="inEm" placeholder="Seu e-mail" autocomplete="username" inputmode="email" required>
+        <input type="password" id="inPw" placeholder="Senha" autocomplete="current-password" required>
+        <button class="primary" type="submit">Entrar</button>
+        <button class="link" type="button" id="bEsq">Esqueci minha senha</button>
+      </form>
+      <form id="fUp" hidden>
+        <p class="note">Use o <b>mesmo e-mail</b> que o responsável pela escala cadastrou para você.</p>
+        <input type="email" id="upEm" placeholder="Seu e-mail" autocomplete="username" inputmode="email" required>
+        <input type="password" id="upPw" placeholder="Crie uma senha (mínimo 8)" autocomplete="new-password" required minlength="8">
+        <button class="primary" type="submit">Criar conta</button>
+      </form>
+      <form id="fNova" hidden>
+        <p class="note">Digite a sua nova senha.</p>
+        <input type="password" id="nvPw" placeholder="Nova senha (mínimo 8)" autocomplete="new-password" required minlength="8">
+        <button class="primary" type="submit">Salvar nova senha</button>
+      </form>
+      <p class="msg" id="aMsg" role="status"></p>
+    </div>
+  </section>
+
+  <!-- conta sem escala -->
+  <section id="vNada" hidden>
+    <div class="card">
+      <h3 style="margin:0">Quase lá!</h3>
+      <p class="note" id="nadaT"></p>
+      <button type="button" class="primary" id="bNada">Tentar de novo</button>
+    </div>
+    <div class="foot" style="margin-top:12px"><span class="note" id="nadaEm"></span><button type="button" class="link" id="bSair2">Sair</button></div>
+  </section>
+
+  <!-- app -->
+  <section id="vApp" hidden>
+    <nav class="tabs" role="tablist">
+      <button type="button" role="tab" data-t="me" aria-selected="true">Minhas</button>
+      <button type="button" role="tab" data-t="eq" aria-selected="false">Equipe</button>
+      <button type="button" role="tab" data-t="fo" aria-selected="false">Não posso</button>
+    </nav>
+    <div id="tMe" style="display:flex;flex-direction:column;gap:12px"></div>
+    <div id="tEq" hidden></div>
+    <div id="tFo" hidden style="display:flex;flex-direction:column;gap:12px"></div>
+    <div class="inst" id="inst" hidden><p id="instT"></p><button type="button" id="bInst" hidden>Instalar</button><button type="button" class="link" id="bInstX" aria-label="Fechar">✕</button></div>
+    <div class="foot"><span class="note" id="fEm"></span><button type="button" class="link" id="bSair">Sair</button></div>
+    <p class="msg" id="appMsg" role="status"></p>
+  </section>
+</div>
+
+<script>
+(()=>{
+  "use strict";
+  const URL0=(()=>{try{return localStorage.getItem("nuvem-teste-url")||""}catch(e){return ""}})()||"https://zdcdaksledcpeguitset.supabase.co";
+  const KEY="sb_publishable_PPqaA18yjSZgMvZw3Cn9Fg_kxQmmrwr";
+  const SK="minha-escala-sessao";
+  const $=id=>document.getElementById(id);
+  const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const DA=["Dom","Seg","Ter","Qua","Qui","Sex","Sáb"], DL=["domingo","segunda","terça","quarta","quinta","sexta","sábado"];
+  const MES=["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+  const pd=s=>{const a=String(s).split("-").map(Number);return new Date(a[0],a[1]-1,a[2])};
+  const ymd=d=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+  const hr=h=>{if(!h)return "";const a=h.split(":");return (+a[0])+"h"+(a[1]&&a[1]!=="00"?a[1]:"")};
+  const dLong=s=>{const d=pd(s);return DA[d.getDay()]+" "+String(d.getDate()).padStart(2,"0")+"/"+String(d.getMonth()+1).padStart(2,"0")};
+  const quando=s=>{const d=pd(s),t=new Date();t.setHours(0,0,0,0);const n=Math.round((d-t)/864e5);return n===0?"hoje":n===1?"amanhã":n>1&&n<7?DL[d.getDay()]:"dia "+d.getDate()+" de "+MES[d.getMonth()]};
+  let S=null, ME=[], ESC=[], tab="me", busy=false;
+
+  /* ---------- conta ---------- */
+  const sGet=()=>{try{return JSON.parse(localStorage.getItem(SK)||"null")}catch(e){return null}};
+  function sPut(j){try{if(!j){localStorage.removeItem(SK);return}const u=j.user||{},o=sGet()||{};localStorage.setItem(SK,JSON.stringify({access_token:j.access_token,refresh_token:j.refresh_token,expires_at:+j.expires_at||Math.floor(Date.now()/1000)+(+j.expires_in||3600),email:u.email||j.email||o.email||""}))}catch(e){}}
+  async function api(path,opt,auth){
+    opt=opt||{}; const h=Object.assign({"apikey":KEY,"Content-Type":"application/json"},opt.headers||{});
+    if(auth!==false){const t=await token();if(!t){const e=new Error("sessao");e.sessao=true;throw e}h.Authorization="Bearer "+t}
+    let r; try{r=await fetch(URL0+path,Object.assign({},opt,{headers:h}))}catch(e){const x=new Error("Sem internet. Confira a conexão e toque em Atualizar.");x.rede=true;throw x}
+    const tx=await r.text(); let j=null; try{j=tx?JSON.parse(tx):null}catch(e){}
+    if(!r.ok){const e=new Error((j&&(j.msg||j.message||j.error_description||j.error))||("Erro "+r.status));e.status=r.status;throw e}
+    return j;
+  }
+  async function token(){
+    const s=sGet(); if(!s||!s.refresh_token) return null;
+    if(s.access_token&&Date.now()/1000<s.expires_at-90) return s.access_token;
+    try{const j=await api("/auth/v1/token?grant_type=refresh_token",{method:"POST",body:JSON.stringify({refresh_token:s.refresh_token})},false);sPut(j);return j.access_token}
+    catch(e){if(e.status>=400&&e.status<500){sPut(null);return null}throw e}
+  }
+  const rpc=(fn,body)=>api("/rest/v1/rpc/"+fn,{method:"POST",body:JSON.stringify(body||{})});
+  function pt(e){
+    const m=String(e&&e.message||e);
+    if(/invalid login credentials/i.test(m)) return "E-mail ou senha incorretos.";
+    if(/email not confirmed/i.test(m)) return "Falta confirmar o e-mail: abra a mensagem que chegou para você e toque no link.";
+    if(/already registered|already been registered|user already exists/i.test(m)) return "Já existe uma conta com esse e-mail. Toque em Entrar.";
+    if(/password should be|weak password/i.test(m)) return "Escolha uma senha mais forte, com pelo menos 8 caracteres.";
+    if(/rate limit|too many/i.test(m)) return "Muitas tentativas. Espere alguns minutos e tente de novo.";
+    if(/valid email|invalid email/i.test(m)) return "Esse e-mail não parece válido.";
+    return m;
+  }
+  const sayT={};
+  const say=(id,t,err)=>{const m=$(id);m.textContent=t||"";m.classList.toggle("err",!!err);clearTimeout(sayT[id]);if(t&&id==="appMsg"&&!err)sayT[id]=setTimeout(()=>{m.textContent=""},4000)};
+
+  /* volta do e-mail (confirmação ou nova senha): o endereço traz a sessão */
+  let recovery=false;
+  (function(){
+    const h=location.hash.replace(/^#/,""); if(!/access_token=/.test(h)) {if(/error_description=/.test(h)){const p=new URLSearchParams(h);setTimeout(()=>say("aMsg",p.get("error_description").replace(/\+/g," ")+". Peça um novo e-mail.",true),0)}return}
+    const p=new URLSearchParams(h);
+    sPut({access_token:p.get("access_token"),refresh_token:p.get("refresh_token"),expires_at:p.get("expires_at"),expires_in:p.get("expires_in")});
+    recovery=p.get("type")==="recovery";
+    history.replaceState(null,"",location.pathname+location.search);
+  })();
+
+  function show(v){["vLoad","vAuth","vNada","vApp"].forEach(k=>$(k).hidden=k!==v);$("bRef").hidden=v!=="vApp"}
+  function authMode(m){
+    $("fIn").hidden=m!=="in";$("fUp").hidden=m!=="up";$("fNova").hidden=m!=="nova";
+    document.querySelectorAll(".seg button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.a===m)));
+    document.querySelector(".seg").hidden=m==="nova"; say("aMsg","");
+  }
+  document.querySelector(".seg").addEventListener("click",e=>{const b=e.target.closest("button[data-a]");if(b)authMode(b.dataset.a)});
+  $("fIn").addEventListener("submit",async e=>{
+    e.preventDefault(); say("aMsg","Entrando…");
+    try{const j=await api("/auth/v1/token?grant_type=password",{method:"POST",body:JSON.stringify({email:$("inEm").value.trim(),password:$("inPw").value})},false);sPut(j);$("inPw").value="";await carregar()}
+    catch(x){say("aMsg",pt(x),true)}
+  });
+  $("fUp").addEventListener("submit",async e=>{
+    e.preventDefault(); const em=$("upEm").value.trim(); say("aMsg","Criando a conta…");
+    try{
+      const j=await api("/auth/v1/signup?redirect_to="+encodeURIComponent(location.origin+location.pathname),{method:"POST",body:JSON.stringify({email:em,password:$("upPw").value})},false);
+      $("upPw").value="";
+      if(j&&j.access_token){sPut(j);await carregar()}
+      else{authMode("in");$("inEm").value=em;say("aMsg","Pronto! Enviamos um e-mail para "+em+". Abra e toque no link para confirmar. Ele traz você de volta para cá.")}
+    }catch(x){say("aMsg",pt(x),true)}
+  });
+  $("bEsq").onclick=async()=>{
+    const em=$("inEm").value.trim(); if(!em){say("aMsg","Digite o seu e-mail acima e toque de novo em Esqueci minha senha.",true);$("inEm").focus();return}
+    say("aMsg","Enviando…");
+    try{await api("/auth/v1/recover?redirect_to="+encodeURIComponent(location.origin+location.pathname),{method:"POST",body:JSON.stringify({email:em})},false);say("aMsg","Se existir uma conta com "+em+", chegou um e-mail com o link para criar uma nova senha.")}
+    catch(x){say("aMsg",pt(x),true)}
+  };
+  $("fNova").addEventListener("submit",async e=>{
+    e.preventDefault(); say("aMsg","Salvando…");
+    try{await api("/auth/v1/user",{method:"PUT",body:JSON.stringify({password:$("nvPw").value})});$("nvPw").value="";recovery=false;await carregar()}
+    catch(x){say("aMsg",pt(x),true)}
+  });
+  function sair(){const s=sGet();sPut(null);if(s)fetch(URL0+"/auth/v1/logout",{method:"POST",headers:{apikey:KEY,Authorization:"Bearer "+s.access_token}}).catch(()=>0);ME=[];ESC=[];authMode("in");show("vAuth")}
+  $("bSair").onclick=sair; $("bSair2").onclick=sair;
+
+  /* ---------- dados ---------- */
+  async function carregar(silencioso){
+    if(busy) return; busy=true;
+    if(!silencioso) show(S?"vApp":"vLoad");
+    try{
+      if(!sGet()){show("vAuth");authMode("in");return}
+      if(recovery){show("vAuth");authMode("nova");return}
+      ME=await rpc("entrar_membro")||[];
+      const s=sGet()||{};
+      if(!ME.length){
+        $("nadaT").innerHTML="A sua conta <b>"+esc(s.email)+"</b> ainda não está ligada a nenhuma escala. Peça ao responsável pela escala para colocar <b>exatamente esse e-mail</b> no seu cadastro no Lumen. Depois toque em Tentar de novo.";
+        $("nadaEm").textContent=s.email||""; show("vNada"); return;
+      }
+      ESC=await rpc("minha_escala")||[];
+      S=s; render(); show("vApp"); say("appMsg","");
+    }catch(x){
+      if(x.sessao){show("vAuth");authMode("in");say("aMsg","Entre de novo na sua conta.");}
+      else if(S){say("appMsg",pt(x),true)}
+      else{show("vAuth");authMode("in");say("aMsg",pt(x),true)}
+    }finally{busy=false}
+  }
+  $("bRef").onclick=()=>carregar(true); $("bNada").onclick=()=>carregar();
+  document.addEventListener("visibilitychange",()=>{if(!document.hidden&&S&&sGet())carregar(true)});
+
+  /* ---------- telas ---------- */
+  const multi=()=>new Set(ME.map(m=>m.unidade_id)).size>1;
+  const uNome=id=>{const m=ME.find(x=>x.unidade_id===id);return m?m.unidade:""};
+  function render(){
+    const nm=(ME[0].nome||"").split(" ")[0];
+    $("hT").firstChild.nodeValue="Olá, "+nm+"!";
+    $("hS").textContent=[...new Set(ME.map(m=>m.igreja+" · "+m.unidade))].join(" / ");
+    $("fEm").textContent=S.email||"";
+    document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.t===tab)));
+    $("tMe").hidden=tab!=="me"; $("tEq").hidden=tab!=="eq"; $("tFo").hidden=tab!=="fo";
+    renderMe(); renderEq(); renderFo(); instUI();
+  }
+  document.querySelector(".tabs").addEventListener("click",e=>{const b=e.target.closest("button[data-t]");if(b){tab=b.dataset.t;say("appMsg","");render();window.scrollTo(0,0)}});
+  function renderMe(){
+    const box=$("tMe"), hoje=ymd(new Date());
+    const mine=ESC.filter(x=>x.minha&&x.data>=hoje);
+    const pend=mine.filter(x=>!x.cancelado&&x.status==="?").length;
+    let h='<h2>'+(pend?pend+(pend>1?" vagas esperando a sua resposta":" vaga esperando a sua resposta"):"Próximas escalas")+'</h2>';
+    if(!mine.length) h+='<div class="card vazio">Você não está escalado(a) nas próximas semanas. 🙌</div>';
+    mine.forEach(x=>{
+      const d=pd(x.data);
+      h+='<div class="card vaga" data-u="'+esc(x.unidade_id)+'" data-e="'+esc(x.escala_id)+'"><div class="dia"><span>'+DA[d.getDay()]+'</span><b>'+d.getDate()+'</b><span>'+MES[d.getMonth()]+'</span></div>'
+        +'<div><h3>'+esc(x.culto||"Culto")+'</h3><div class="q">'+quando(x.data)+(x.hora?" · "+hr(x.hora):"")+(multi()?" · "+esc(uNome(x.unidade_id)):"")+'</div>'+(x.obs?'<div class="obs">'+esc(x.obs)+'</div>':"")+'<span class="fn">'+esc(x.funcao)+'</span></div>';
+      if(x.cancelado) h+='<div class="canc">Este culto foi cancelado.</div>';
+      else if(x.status==="ok") h+='<div class="st ok">✓ Você confirmou<button type="button" data-s="?">Mudar</button></div>';
+      else if(x.status==="no") h+='<div class="st no">✗ Você avisou que não pode<button type="button" data-s="?">Mudar</button></div>';
+      else h+='<div class="acts"><button type="button" class="sim" data-s="ok">✓ Confirmo</button><button type="button" class="nao" data-s="no">✗ Não posso</button></div>';
+      h+='</div>';
+    });
+    box.innerHTML=h;
+  }
+  $("tMe").addEventListener("click",async e=>{
+    const b=e.target.closest("button[data-s]"); if(!b) return;
+    const c=b.closest(".vaga"), x=ESC.find(v=>v.unidade_id===c.dataset.u&&v.escala_id===c.dataset.e); if(!x) return;
+    const old=x.status; x.status=b.dataset.s; renderMe(); renderEq();
+    try{await rpc("responder",{p_unidade:x.unidade_id,p_escala:x.escala_id,p_status:x.status});say("appMsg",x.status==="ok"?"Obrigado! Sua confirmação foi enviada.":x.status==="no"?"Pronto. Quem monta a escala já vê que você não pode.":"")}
+    catch(err){x.status=old;renderMe();renderEq();say("appMsg",pt(err),true)}
+  });
+  function renderEq(){
+    const box=$("tEq"), hoje=ymd(new Date()), g=new Map();
+    ESC.filter(x=>x.data>=hoje).forEach(x=>{const k=x.unidade_id+"|"+x.data+"|"+(x.hora||"")+"|"+(x.culto||"");if(!g.has(k))g.set(k,[]);g.get(k).push(x)});
+    if(!g.size){box.innerHTML='<div class="card vazio">Ainda não há escala publicada para as próximas semanas.</div>';return}
+    let h='<div class="card eq">';
+    g.forEach(L=>{const x=L[0];
+      h+='<div class="c'+(x.cancelado?" cx":"")+'"><h4>'+dLong(x.data)+(x.hora?" · "+hr(x.hora):"")+' <small>'+esc(x.culto||"Culto")+(multi()?" · "+esc(uNome(x.unidade_id)):"")+(x.cancelado?" · cancelado":"")+'</small></h4>'
+        +L.map(v=>'<div class="l'+(v.minha?" eu":"")+'"><span>'+esc(v.funcao)+'</span><span>'+esc(v.minha?"Você":(v.pessoa||"—"))+(v.status==="ok"?'<i class="ok" title="confirmou">✓</i>':v.status==="no"?'<i class="no" title="não pode">✗</i>':"")+'</span></div>').join("")+'</div>'});
+    box.innerHTML=h+'</div>';
+  }
+  function renderFo(){
+    const box=$("tFo"), hoje=ymd(new Date());
+    let h='<h2>Dias em que não posso</h2><div class="card"><p class="note">Marque aqui os dias em que você não pode servir. Quem monta a escala já vê e não coloca você nesses dias.</p>';
+    ME.forEach(m=>{
+      const f=(m.folgas||[]).filter(d=>d>=hoje);
+      if(multi()) h+='<p class="unit">'+esc(m.igreja+" · "+m.unidade)+'</p>';
+      h+='<div class="chips" data-u="'+esc(m.unidade_id)+'">'+(f.length?f.map(d=>'<span class="chip">'+dLong(d)+'<button type="button" data-rm="'+d+'" aria-label="Tirar '+dLong(d)+'">✕</button></span>').join(""):'<span class="note">Nenhum dia marcado.</span>')+'</div>'
+        +'<div class="addf" data-u="'+esc(m.unidade_id)+'"><input type="date" min="'+hoje+'" aria-label="Dia em que não posso"><button type="button" class="primary" data-add="1">Adicionar</button></div>';
+    });
+    box.innerHTML=h+'</div>';
+  }
+  $("tFo").addEventListener("click",async e=>{
+    const rm=e.target.closest("button[data-rm]"), ad=e.target.closest("button[data-add]"); if(!rm&&!ad) return;
+    const u=(rm||ad).closest("[data-u]").dataset.u, m=ME.find(x=>x.unidade_id===u); if(!m) return;
+    let f=(m.folgas||[]).slice();
+    if(rm) f=f.filter(d=>d!==rm.dataset.rm);
+    else{const i=ad.parentNode.querySelector("input");if(!i.value){i.focus();return}if(!f.includes(i.value))f.push(i.value)}
+    const old=m.folgas; m.folgas=f.sort(); renderFo();
+    try{m.folgas=await rpc("minhas_folgas",{p_unidade:u,p_folgas:f})||[];renderFo();say("appMsg","Salvo.")}
+    catch(err){m.folgas=old;renderFo();say("appMsg",pt(err),true)}
+  });
+
+  /* ---------- instalar no celular ---------- */
+  let promptEv=null;
+  const standalone=()=>matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+  const instOff=()=>{try{return localStorage.getItem("minha-escala-inst-x")==="1"}catch(e){return false}};
+  window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();promptEv=e;instUI()});
+  function instUI(){
+    const b=$("inst"); if(standalone()||instOff()){b.hidden=true;return}
+    const ios=/iphone|ipad|ipod/i.test(navigator.userAgent);
+    if(promptEv){$("instT").textContent="Coloque a Minha escala na tela inicial do celular, como um aplicativo.";$("bInst").hidden=false;b.hidden=false}
+    else if(ios){$("instT").innerHTML="No iPhone: toque em <b>Compartilhar</b> (o quadrado com a seta) e depois em <b>Adicionar à Tela de Início</b>.";$("bInst").hidden=true;b.hidden=false}
+    else b.hidden=true;
+  }
+  $("bInst").onclick=async()=>{if(!promptEv)return;promptEv.prompt();try{await promptEv.userChoice}catch(e){}promptEv=null;instUI()};
+  $("bInstX").onclick=()=>{try{localStorage.setItem("minha-escala-inst-x","1")}catch(e){}instUI()};
+  if("serviceWorker" in navigator&&/^https?:/.test(location.protocol)) navigator.serviceWorker.register("sw.js").catch(()=>0);
+
+  carregar();
+})();
+</script>
+</body>
+</html>
