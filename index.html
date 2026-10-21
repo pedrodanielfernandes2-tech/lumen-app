@@ -95,6 +95,31 @@ form{display:flex;flex-direction:column;gap:10px;margin:0}
 .spin{width:22px;height:22px;border:3px solid var(--line);border-top-color:var(--accent);border-radius:50%;animation:g 0.8s linear infinite;margin:30px auto}
 @keyframes g{to{transform:rotate(360deg)}}
 .unit{font-size:13px;color:var(--muted);margin:2px 2px -6px}
+.eqn{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:8px 0 2px}
+.rep{grid-column:1 / -1;border-radius:12px;background:var(--q-bg);padding:10px 12px;font-size:14px;display:flex;flex-direction:column;gap:4px}
+.rep b{font-size:13px}
+.rep ol{margin:0;padding-left:20px}
+.rep .tom{font-size:12px;font-weight:700;color:var(--accent);margin-left:6px}
+.rep .vz{color:var(--muted);font-size:13px}
+.rep button{align-self:flex-start;margin-top:4px}
+.eq .rep{margin-top:8px}
+/* escolher louvores */
+.sheet{position:fixed;inset:0;z-index:50;background:var(--bg);overflow:auto;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+.sheet .wrap{gap:12px}
+.sh-h{display:flex;align-items:center;gap:10px}
+.sh-h h2{flex:1;margin:0;font-size:18px;color:var(--fg);text-transform:none;letter-spacing:0}
+.sel-l{display:flex;flex-direction:column;gap:8px}
+.sel-i{display:grid;grid-template-columns:24px minmax(0,1fr) 64px auto;gap:8px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:8px 10px}
+.sel-i .n{font-weight:800;color:var(--muted);text-align:center}
+.sel-i .t{font-weight:600;overflow:hidden;text-overflow:ellipsis}
+.sel-i .t small{display:block;font-weight:500;font-size:12px;color:var(--gold)}
+.sel-i input{padding:8px;font-size:14px;text-align:center}
+.sel-i .bt{display:flex;gap:4px}
+.sel-i .bt button{padding:6px 9px;font-size:14px}
+.res{display:flex;flex-direction:column;gap:6px}
+.res button{text-align:left;display:flex;gap:8px;align-items:center}
+.res button span{flex:1}
+.res .novo{border-style:dashed}
 .tabs .bd{display:inline-block;min-width:18px;height:18px;border-radius:9px;background:var(--gold);color:#1d1a26;font-size:11px;font-weight:800;line-height:18px;margin-left:5px;padding:0 5px}
 /* calendário */
 .mhead{display:flex;align-items:center;gap:8px}
@@ -171,6 +196,20 @@ form{display:flex;flex-direction:column;gap:10px;margin:0}
   </section>
 
   <!-- app -->
+  <div class="sheet" id="repSheet" hidden role="dialog" aria-modal="true" aria-labelledby="shT">
+    <div class="wrap">
+      <div class="sh-h"><button type="button" class="link" id="shX" aria-label="Voltar">‹ Voltar</button><h2 id="shT">Louvores</h2></div>
+      <p class="note" id="shQ"></p>
+      <div class="sel-l" id="shSel"></div>
+      <div class="card">
+        <input type="search" id="shBusca" placeholder="Buscar na biblioteca (nome ou número)" aria-label="Buscar louvor" autocomplete="off">
+        <div class="res" id="shRes"></div>
+      </div>
+      <button type="button" class="primary" id="shOk">Salvar repertório</button>
+      <p class="msg" id="shMsg" role="status"></p>
+    </div>
+  </div>
+
   <section id="vApp" hidden>
     <nav class="tabs" role="tablist">
       <button type="button" role="tab" data-t="mes" aria-selected="true">Mês</button>
@@ -202,7 +241,7 @@ form{display:flex;flex-direction:column;gap:10px;margin:0}
   const hr=h=>{if(!h)return "";const a=h.split(":");return (+a[0])+"h"+(a[1]&&a[1]!=="00"?a[1]:"")};
   const dLong=s=>{const d=pd(s);return DA[d.getDay()]+" "+String(d.getDate()).padStart(2,"0")+"/"+String(d.getMonth()+1).padStart(2,"0")};
   const quando=s=>{const d=pd(s),t=new Date();t.setHours(0,0,0,0);const n=Math.round((d-t)/864e5);return n===0?"hoje":n===1?"amanhã":n>1&&n<7?DL[d.getDay()]:"dia "+d.getDate()+" de "+MES[d.getMonth()]};
-  let S=null, ME=[], ESC=[], tab=/minhas/.test(location.hash)?"me":"mes", busy=false;
+  let REP={}, S=null, ME=[], ESC=[], tab=/minhas/.test(location.hash)?"me":"mes", busy=false;
   const VAPID="BFOvUJ5C0VRz9mvkaIR3xvqKyxbZCO8Y6-QUAqx-Z9ppyH5ZI3aq4OWyrjPzUR8unOZ3FvBZt3KV977iZR69mww";
   const MESL=["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
   let MV=(()=>{const d=new Date();return {y:d.getFullYear(),m:d.getMonth()}})(), MC={}, selDia="";
@@ -298,8 +337,8 @@ form{display:flex;flex-direction:column;gap:10px;margin:0}
         $("nadaT").innerHTML="A sua conta <b>"+esc(s.email)+"</b> ainda não está ligada a nenhuma escala. Peça ao responsável pela escala para colocar <b>exatamente esse e-mail</b> no seu cadastro no Lumen. Depois toque em Tentar de novo.";
         $("nadaEm").textContent=s.email||""; show("vNada"); return;
       }
-      const [a,b]=await Promise.all([rpc("minha_escala"),carregarMes(true)]);
-      ESC=a||[]; void b;
+      const [a,b,c]=await Promise.all([rpc("minha_escala_v2"),carregarMes(true),rpc("repertorios",{p_de:ymd(new Date(Date.now()-40*864e5)),p_ate:ymd(new Date(Date.now()+90*864e5))})]);
+      ESC=a||[]; void b; REP={}; (c||[]).forEach(r=>REP[r.unidade_id+"|"+r.culto_id]=r);
       S=s; render(); show("vApp"); say("appMsg",""); pushSync();
     }catch(x){
       if(x.sessao){show("vAuth");authMode("in");say("aMsg","Entre de novo na sua conta.");}
@@ -310,7 +349,7 @@ form{display:flex;flex-direction:column;gap:10px;margin:0}
   async function carregarMes(force){
     const k=mKey(); if(MC[k]&&!force) return MC[k];
     const de=new Date(MV.y,MV.m,1), ate=new Date(MV.y,MV.m+1,0);
-    MC[k]=await rpc("minha_escala",{p_de:ymd(de),p_ate:ymd(ate)})||[]; return MC[k];
+    MC[k]=await rpc("minha_escala_v2",{p_de:ymd(de),p_ate:ymd(ate)})||[]; return MC[k];
   }
   $("bRef").onclick=()=>{MC={};carregar(true)}; $("bNada").onclick=()=>carregar();
   document.addEventListener("visibilitychange",()=>{if(!document.hidden&&S&&sGet())carregar(true)});
@@ -344,11 +383,13 @@ form{display:flex;flex-direction:column;gap:10px;margin:0}
       else if(x.status==="ok") h+='<div class="st ok">✓ Você confirmou<button type="button" data-s="?">Mudar</button></div>';
       else if(x.status==="no") h+='<div class="st no">✗ Você avisou que não pode<button type="button" data-s="?">Mudar</button></div>';
       else h+='<div class="acts"><button type="button" class="sim" data-s="ok">✓ Confirmo</button><button type="button" class="nao" data-s="no">✗ Não posso</button></div>';
+      if(!x.cancelado) h+=repResumo(x, x.escolhe&&x.status!=="no");
       h+='</div>';
     });
     box.innerHTML=h;
   }
   $("tMe").addEventListener("click",async e=>{
+    const ab=e.target.closest("button[data-rep]"); if(ab){const c=ab.closest(".vaga"),x=ESC.find(v=>v.unidade_id===c.dataset.u&&v.escala_id===c.dataset.e);if(x)repAbrir(x);return}
     const b=e.target.closest("button[data-s]"); if(!b) return;
     const c=b.closest(".vaga"), x=ESC.find(v=>v.unidade_id===c.dataset.u&&v.escala_id===c.dataset.e); if(!x) return;
     const old=x.status; x.status=b.dataset.s; Object.values(MC).forEach(L=>L.forEach(v=>{if(v.unidade_id===x.unidade_id&&v.escala_id===x.escala_id)v.status=x.status})); render();
@@ -375,7 +416,8 @@ form{display:flex;flex-direction:column;gap:10px;margin:0}
       h+='<h2>Equipe no mês</h2><div class="card eq">';
       g.forEach(G=>{const x=G[0];
         h+='<div class="c'+(x.cancelado?" cx":"")+(x.data<hoje?" past":"")+(x.data===selDia?" sel":"")+'" id="dia-'+x.data+'"><h4>'+dLong(x.data)+(x.hora?" · "+hr(x.hora):"")+' <small>'+esc(x.culto||"Culto")+(multi()?" · "+esc(uNome(x.unidade_id)):"")+(x.cancelado?" · cancelado":"")+(x.data===hoje?" · hoje":"")+'</small></h4>'
-          +G.map(v=>'<div class="l'+(v.minha?" eu":"")+'"><span>'+esc(v.funcao)+'</span><span>'+esc(v.minha?"Você":(v.pessoa||"—"))+(v.status==="ok"?'<i class="ok" title="confirmou">✓</i>':v.status==="no"?'<i class="no" title="não pode">✗</i>':"")+'</span></div>').join("")+'</div>'});
+          +G.map((v,i)=>{const nq=new Set(G.map(z=>z.equipe)).size>1&&(i===0||G[i-1].equipe!==v.equipe);return (nq?'<div class="eqn">'+esc(v.equipe)+'</div>':'')+'<div class="l'+(v.minha?" eu":"")+'"><span>'+esc(v.funcao)+'</span><span>'+esc(v.minha?"Você":(v.pessoa||"—"))+(v.status==="ok"?'<i class="ok" title="confirmou">✓</i>':v.status==="no"?'<i class="no" title="não pode">✗</i>':"")+'</span></div>'}).join("")
+          +(x.cancelado?"":repResumo(x,false,x.data>=hoje&&G.some(v=>v.escolhe)))+'</div>'});
       h+='</div>';
     }
     box.innerHTML=h;
@@ -409,6 +451,61 @@ form{display:flex;flex-direction:column;gap:10px;margin:0}
     try{m.folgas=await rpc("minhas_folgas",{p_unidade:u,p_folgas:f})||[];renderFo();say("appMsg","Salvo.")}
     catch(err){m.folgas=old;renderFo();say("appMsg",pt(err),true)}
   });
+
+  /* ---------- repertório (Ministro escolhe os louvores) ---------- */
+  function repResumo(x,podeEscolher,mostrarVazio){
+    const r=REP[x.unidade_id+"|"+x.culto_id], it=r&&r.itens||[];
+    if(!it.length&&!podeEscolher&&!mostrarVazio) return "";
+    let h='<div class="rep"><b>🎵 Louvores'+(r&&r.autor_nome&&it.length?' · por '+esc(r.autor_nome.split(" ")[0]):'')+'</b>';
+    if(it.length) h+='<ol>'+it.map(i=>'<li>'+esc(i.titulo)+(i.tom?'<span class="tom">'+esc(i.tom)+'</span>':'')+'</li>').join("")+'</ol>';
+    else h+='<span class="vz">'+(podeEscolher?"Você ainda não escolheu os louvores deste culto.":"Ainda não definidos.")+'</span>';
+    if(podeEscolher) h+='<button type="button" class="'+(it.length?"":"primary")+'" data-rep="1">'+(it.length?"Mudar louvores":"Escolher louvores")+'</button>';
+    return h+'</div>';
+  }
+  let SH=null, shT=0, shSeq=0;
+  function repAbrir(x){
+    const r=REP[x.unidade_id+"|"+x.culto_id];
+    SH={x,itens:(r&&r.itens||[]).map(i=>({id:i.id||null,titulo:i.titulo,tom:i.tom||""}))};
+    const lim=new Date(pd(x.data).getTime()-2*864e5);
+    $("shT").textContent="Louvores · "+dLong(x.data)+(x.hora?" "+hr(x.hora):"");
+    const passou=ymd(lim)<ymd(new Date());
+    $("shQ").textContent=(x.culto||"Culto")+(passou?" · escolha o quanto antes":" · escolha até "+DA[lim.getDay()]+" "+lim.getDate()+"/"+String(lim.getMonth()+1).padStart(2,"0"))+". A banda e a mídia veem a lista no app, e ela entra na programação do Lumen.";
+    $("shBusca").value=""; $("shRes").textContent=""; say("shMsg",""); shRender();
+    $("repSheet").hidden=false; document.body.style.overflow="hidden"; setTimeout(()=>$("shBusca").focus(),50);
+  }
+  function shFechar(){$("repSheet").hidden=true;document.body.style.overflow="";SH=null}
+  function shRender(){
+    const L=$("shSel"); L.textContent="";
+    if(!SH.itens.length){L.innerHTML='<p class="note">Nenhum louvor ainda. Busque abaixo e toque para adicionar.</p>';return}
+    SH.itens.forEach((it,i)=>{
+      const d=document.createElement("div"); d.className="sel-i";
+      d.innerHTML='<span class="n">'+(i+1)+'</span><span class="t"></span><input type="text" maxlength="10" placeholder="Tom" aria-label="Tom"><span class="bt"><button type="button" data-a="up" aria-label="Subir"'+(i?'':' disabled')+'>↑</button><button type="button" data-a="dn" aria-label="Descer"'+(i<SH.itens.length-1?'':' disabled')+'>↓</button><button type="button" data-a="rm" aria-label="Tirar">✕</button></span>';
+      d.querySelector(".t").textContent=it.titulo; if(!it.id){const sm=document.createElement("small");sm.textContent="não está na biblioteca: a mídia vai cadastrar";d.querySelector(".t").appendChild(sm)}
+      const tom=d.querySelector("input"); tom.value=it.tom||""; tom.oninput=()=>{it.tom=tom.value.trim()};
+      d.querySelector(".bt").onclick=e=>{const a=e.target.closest("button[data-a]");if(!a)return;const k=a.dataset.a;
+        if(k==="rm")SH.itens.splice(i,1);else{const j=k==="up"?i-1:i+1;[SH.itens[i],SH.itens[j]]=[SH.itens[j],SH.itens[i]]}shRender()};
+      L.appendChild(d);
+    });
+  }
+  $("shBusca").addEventListener("input",()=>{clearTimeout(shT);shT=setTimeout(shBuscar,250)});
+  async function shBuscar(){
+    const q=$("shBusca").value.trim(), R=$("shRes"), seq=++shSeq; if(!q){R.textContent="";return}
+    let rows=[]; try{rows=await rpc("louvores_buscar",{p_unidade:SH.x.unidade_id,p_q:q})||[]}catch(e){say("shMsg",pt(e),true)}
+    if(seq!==shSeq||!SH) return; R.textContent="";
+    rows.forEach(r=>{const b=document.createElement("button");b.type="button";const sp=document.createElement("span");sp.textContent=r.titulo;b.appendChild(sp);b.append("+");
+      b.onclick=()=>{if(!SH.itens.some(i=>i.id===r.id))SH.itens.push({id:r.id,titulo:r.titulo,tom:""});$("shBusca").value="";R.textContent="";shRender();$("shBusca").focus()};R.appendChild(b)});
+    const n=document.createElement("button");n.type="button";n.className="novo";const sp=document.createElement("span");sp.textContent="Adicionar “"+q+"” (não está na biblioteca)";n.appendChild(sp);n.append("+");
+    n.onclick=()=>{SH.itens.push({id:null,titulo:q,tom:""});$("shBusca").value="";R.textContent="";shRender()};R.appendChild(n);
+  }
+  $("shX").onclick=shFechar;
+  $("shOk").onclick=async()=>{
+    if(!SH) return; say("shMsg","Salvando…"); $("shOk").disabled=true;
+    try{
+      await rpc("repertorio_salvar",{p_unidade:SH.x.unidade_id,p_culto:SH.x.culto_id,p_itens:SH.itens.map(i=>({id:i.id,titulo:i.titulo,tom:i.tom||null}))});
+      REP[SH.x.unidade_id+"|"+SH.x.culto_id]={itens:SH.itens.map(i=>({id:i.id,titulo:i.titulo,tom:i.tom||null})),autor_nome:(ME[0]||{}).nome||""};
+      shFechar(); render(); say("appMsg","Repertório salvo. A equipe já pode ver no app.");
+    }catch(e){say("shMsg",pt(e),true)}finally{$("shOk").disabled=false}
+  };
 
   /* ---------- avisos no celular (Web Push) ---------- */
   const b64u=s=>{const p="=".repeat((4-s.length%4)%4),b=atob((s+p).replace(/-/g,"+").replace(/_/g,"/"));return Uint8Array.from(b,c=>c.charCodeAt(0))};
