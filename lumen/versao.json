@@ -1,8 +1,8 @@
 {
-  "versao": "10.6",
-  "arquivo": "lumen-10.6.pacote",
-  "sha256": "0fd3d413944d7de6ca90de357cd397aad7c03407cb473f3cc6be0313db195b36",
-  "assinatura": "mP7ezouv1vto_2V0bSnCt0iQU8JoE8YqffHtu-LmYuT22DT6UJfmNTFZAAcpM1oCeQ-LNPo8MWdDz7gtop72Bg",
-  "notas": "Cadastro de pessoas da Escala com visual novo, mais limpo e organizado.",
+  "versao": "10.7",
+  "arquivo": "lumen-10.7.pacote",
+  "sha256": "0a07fc9dd524d2aba5a9efaa144b777905caf0de5af332d87b2a5aca6275e7fe",
+  "assinatura": "4MAPlyoBXbkJv3GNt4A0jQjGFKqtNhcnZUORbT56pvzDRzOrosKWaFYjLnKXCdzZE4-zBalnlr4UZ37O-undDA",
+  "notas": "Escala com várias equipes (Mídia, Louvor…) e repertório: o Ministro escolhe os louvores no app e eles chegam na Programação.",
   "publicado": "2026-10-21"
 }
