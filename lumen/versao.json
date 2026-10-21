@@ -1,8 +1,8 @@
 {
-  "versao": "10.7",
-  "arquivo": "lumen-10.7.pacote",
-  "sha256": "0a07fc9dd524d2aba5a9efaa144b777905caf0de5af332d87b2a5aca6275e7fe",
-  "assinatura": "4MAPlyoBXbkJv3GNt4A0jQjGFKqtNhcnZUORbT56pvzDRzOrosKWaFYjLnKXCdzZE4-zBalnlr4UZ37O-undDA",
-  "notas": "Escala com várias equipes (Mídia, Louvor…) e repertório: o Ministro escolhe os louvores no app e eles chegam na Programação.",
+  "versao": "10.8",
+  "arquivo": "lumen-10.8.pacote",
+  "sha256": "6191fb8fbe900014016573a97710fcfefc9e74acd6298cc1fd6f141319ae022a",
+  "assinatura": "Xd76fU-j7NPdOFYYG52K7PJSqg3Us9I7Qb8Uz1kHO534n77-mld8yJgmNDm9umr6xCMnbSP82riFSz5dO4AtAQ",
+  "notas": "Temas em aba própria: o Editor fica só para a letra; criar e editar temas (e os fundos vivos) agora é na aba Temas. Os louvores ficam ligados ao tema — ao salvar um tema, todos os louvores que usam ele mudam juntos, mantendo o ajuste fino de cada um.",
   "publicado": "2026-10-21"
 }
