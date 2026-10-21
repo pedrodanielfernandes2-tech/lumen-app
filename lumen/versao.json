@@ -1,8 +1,8 @@
 {
-  "versao": "10.5",
-  "arquivo": "lumen-10.5.pacote",
-  "sha256": "d53adb6f37ca6d2458a230c3fd341604c4f42ce5d90c6668260e85513bbe64e1",
-  "assinatura": "tJEJ-bVhvfcWOpmdcxPRDN80yQGz-XK3gRsFu21WkdJmjV6F7M61qcL277JLg0_pzraSo6kHJXZW9e7xAoXbCg",
-  "notas": "Corrige a versão e o botão Procurar atualização na tela de atalhos (F1).",
-  "publicado": "2026-10-20"
+  "versao": "10.6",
+  "arquivo": "lumen-10.6.pacote",
+  "sha256": "0fd3d413944d7de6ca90de357cd397aad7c03407cb473f3cc6be0313db195b36",
+  "assinatura": "mP7ezouv1vto_2V0bSnCt0iQU8JoE8YqffHtu-LmYuT22DT6UJfmNTFZAAcpM1oCeQ-LNPo8MWdDz7gtop72Bg",
+  "notas": "Cadastro de pessoas da Escala com visual novo, mais limpo e organizado.",
+  "publicado": "2026-10-21"
 }
