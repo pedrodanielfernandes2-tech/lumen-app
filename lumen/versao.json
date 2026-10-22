@@ -1,8 +1,8 @@
 {
-  "versao": "10.8.1",
-  "arquivo": "lumen-10.8.1.pacote",
-  "sha256": "14b54a33b22216973558ae7a77e14b013809c17c71ee4d0232cbb75b09e1c8ef",
-  "assinatura": "0EakXMtNM71FAQXc3UGrMGXDCCfFRoxQcaoDdVUxfSJYIcXpZ_vLswQXfvwf_iqX1kelCFNvHeDvG5whFb9SAQ",
-  "notas": "Correção: a lista de louvores do Culto podia ficar em “Carregando…” e a mensagem no telão não aparecia. Se der algum erro na abertura, agora aparece uma faixa vermelha com o motivo.",
+  "versao": "10.8.2",
+  "arquivo": "lumen-10.8.2.pacote",
+  "sha256": "2c9a09f9729c55724eb3e638a271b6980721247af30091d486ff08d1d6e26967",
+  "assinatura": "5QnPTI9cP5cOcRKNcgQeBASERZoXEC2VoAJ9_sd5cLonILwJOeL5GtbUDSDlSOfWT9nMJLxH08aTKgzVLmknBw",
+  "notas": "Correção: escalas criadas antes da versão 10.7 travavam a abertura (louvores em “Carregando…”). Agora a escala antiga é convertida sozinha.",
   "publicado": "2026-10-22"
 }
