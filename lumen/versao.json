@@ -1,8 +1,8 @@
 {
-  "versao": "10.9.1",
-  "arquivo": "lumen-10.9.1.pacote",
-  "sha256": "49e85b362d57b9e00045d1371acb71c7e7a0fbc8246373f1a0bc7541e2e0cecb",
-  "assinatura": "55qYaRdrLyOmsbs7nOxZQqfc5HS6nDe5HravGq1M_n9N-0WFdSN8Sz01PnNAo1IWtRXpNCb9BvjslIVMV7h5Ag",
-  "notas": "Retorno do púlpito: agora dá para escolher onde o cronômetro aparece (em cima ou embaixo; esquerda, centro ou direita). A letra se ajusta para não ficar embaixo dele.",
+  "versao": "10.10",
+  "arquivo": "lumen-10.10.pacote",
+  "sha256": "a18e66295ccd6d0471bc709d6f33d67df59db5c14a9aa9cbab50aafa7bcae0fb",
+  "assinatura": "i2QWMAU1q975oqT6kgO4KkqA2n4FzdKXaanKjPGz1bE5NjuQxxw3M7uX6SvghchszrJiJqar1VlmK6wWO7EjAA",
+  "notas": "Avisos e descanso de tela aparecem inteiros, sem cortar: novo ajuste Automático e o Formato real do telão (Ferramentas › Monitores) para painéis de LED.",
   "publicado": "2026-10-22"
 }
