@@ -1,8 +1,8 @@
 {
-  "versao": "10.7",
-  "arquivo": "lumen-10.7.pacote",
-  "sha256": "0a07fc9dd524d2aba5a9efaa144b777905caf0de5af332d87b2a5aca6275e7fe",
-  "assinatura": "4MAPlyoBXbkJv3GNt4A0jQjGFKqtNhcnZUORbT56pvzDRzOrosKWaFYjLnKXCdzZE4-zBalnlr4UZ37O-undDA",
-  "notas": "Escala com várias equipes (Mídia, Louvor…) e repertório: o Ministro escolhe os louvores no app e eles chegam na Programação.",
-  "publicado": "2026-10-21"
+  "versao": "10.8.2",
+  "arquivo": "lumen-10.8.2.pacote",
+  "sha256": "2c9a09f9729c55724eb3e638a271b6980721247af30091d486ff08d1d6e26967",
+  "assinatura": "5QnPTI9cP5cOcRKNcgQeBASERZoXEC2VoAJ9_sd5cLonILwJOeL5GtbUDSDlSOfWT9nMJLxH08aTKgzVLmknBw",
+  "notas": "Correção: escalas criadas antes da versão 10.7 travavam a abertura (louvores em “Carregando…”). Agora a escala antiga é convertida sozinha.",
+  "publicado": "2026-10-22"
 }
