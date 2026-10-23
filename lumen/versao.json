@@ -1,8 +1,8 @@
 {
-  "versao": "10.10",
-  "arquivo": "lumen-10.10.pacote",
-  "sha256": "a18e66295ccd6d0471bc709d6f33d67df59db5c14a9aa9cbab50aafa7bcae0fb",
-  "assinatura": "i2QWMAU1q975oqT6kgO4KkqA2n4FzdKXaanKjPGz1bE5NjuQxxw3M7uX6SvghchszrJiJqar1VlmK6wWO7EjAA",
-  "notas": "Avisos e descanso de tela aparecem inteiros, sem cortar: novo ajuste Automático e o Formato real do telão (Ferramentas › Monitores) para painéis de LED.",
-  "publicado": "2026-10-22"
+  "versao": "10.13",
+  "arquivo": "lumen-10.13.pacote",
+  "sha256": "ec76c428c76788dbd0b6b0c191a83213885b16719f01ecf30f58fbf718b11b0f",
+  "assinatura": "WH_SmodOI0OOzwP9TLT6-QJv9qsiMFhfMqPvNkFSlyBrheoCZYMCrtA7ZE-D3ElEpgENhHTKTzGjjM7dRgEIAg",
+  "notas": "Contagem regressiva no estilo Palco: número grande alternando com as suas frases em letras grandes em degrau, paletas de cor prontas, e os 10 segundos finais em destaque.",
+  "publicado": "2026-10-23"
 }
