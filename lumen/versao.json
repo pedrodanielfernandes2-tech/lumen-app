@@ -1,8 +1,8 @@
 {
-  "versao": "10.14",
-  "arquivo": "lumen-10.14.pacote",
-  "sha256": "d6377007d0c48f26be7d28f749787264d21b09b0185b53903ee097e52f745914",
-  "assinatura": "TGQRT_mjz1NHOsUY2XtBBNa_dKViB6gBVl64jz4gd-IIjnXFIgaU7ufPxE36HJHSl9RZuYdz3ewOp5nbuweqAg",
-  "notas": "Aba Avisos reorganizada: controles na faixa de cima, fila com a prévia à esquerda e os quadros ocupando a tela; Descanso de tela com prévia mini e as artes na tela toda.",
+  "versao": "10.15",
+  "arquivo": "lumen-10.15.pacote",
+  "sha256": "5a3239bedae0e8b47552929f372edd726f9a96a84e32b72c882a0b8ae08cb739",
+  "assinatura": "ClV6knaamFfN_fTLK-C397rPD7ShgW3SZosfzhy_a-g9O1yRkvaZDKuYNrYiNuOwbJkAV5ju7sH5trYl6RcCCg",
+  "notas": "Culto: arraste o canto da prévia do telão para deixar do tamanho que quiser. Retorno: no último quadro em branco do louvor aparece FIM (em vermelho) e o próximo da programação — só no retorno, nunca no telão.",
   "publicado": "2026-10-23"
 }
