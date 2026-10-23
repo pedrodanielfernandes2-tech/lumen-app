@@ -1,8 +1,8 @@
 {
-  "versao": "10.17",
-  "arquivo": "lumen-10.17.pacote",
-  "sha256": "ebb1644ca4eb4199e3d9dc1574f7e55224e85ecacc56add6d44a4ba0f2f9162d",
-  "assinatura": "35XJHmGJVUGJA9IQ7rW25bNzPTd7wtoqU7cGwerHipe28WLaMk-zMBwqUX-22nwRL4SXRramz5gWnbBdFvlpDg",
-  "notas": "Letra: duas linhas em branco seguidas viram um quadro em branco (pausa para o instrumental).",
+  "versao": "10.17.1",
+  "arquivo": "lumen-10.17.1.pacote",
+  "sha256": "dc004874e6609a3060822c7943ca28dbf6f22a8e7d6b5c2c01cbd36311bcd7fb",
+  "assinatura": "qvmomNwXbtbfYg0_U_yInNDqmUOBL743WlbX4U5Mztg7fNc1FZVOaXCU0i7HKPGxlj7EMSq6HjwRIU42h31pDg",
+  "notas": "Descanso de tela: o Esc não apaga mais a arte do telão; ela só sai quando você escolher outra (ou pelo botão Tela preta).",
   "publicado": "2026-10-23"
 }
