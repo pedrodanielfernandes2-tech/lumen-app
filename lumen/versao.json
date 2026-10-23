@@ -1,8 +1,8 @@
 {
-  "versao": "10.15",
-  "arquivo": "lumen-10.15.pacote",
-  "sha256": "5a3239bedae0e8b47552929f372edd726f9a96a84e32b72c882a0b8ae08cb739",
-  "assinatura": "ClV6knaamFfN_fTLK-C397rPD7ShgW3SZosfzhy_a-g9O1yRkvaZDKuYNrYiNuOwbJkAV5ju7sH5trYl6RcCCg",
-  "notas": "Culto: arraste o canto da prévia do telão para deixar do tamanho que quiser. Retorno: no último quadro em branco do louvor aparece FIM (em vermelho) e o próximo da programação — só no retorno, nunca no telão.",
+  "versao": "10.16.1",
+  "arquivo": "lumen-10.16.1.pacote",
+  "sha256": "f3995381b2c482d5c73ab12f238e6c3ba7e02f8a206001b93dc949a77f57e1ef",
+  "assinatura": "_CsRJt3pgXE0opEns11FYt3UGsqAwJg2WJOkjUk0RsLka6FqL_ZVjhaXtJBTY7IEs3XNhY7kQKbItnCm03J0CA",
+  "notas": "Avisos: com Miniaturas grandes os quadros ficam no tamanho certo e a lista rola (antes ficavam espremidos).",
   "publicado": "2026-10-23"
 }
