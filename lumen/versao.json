@@ -1,8 +1,8 @@
 {
-  "versao": "10.13",
-  "arquivo": "lumen-10.13.pacote",
-  "sha256": "ec76c428c76788dbd0b6b0c191a83213885b16719f01ecf30f58fbf718b11b0f",
-  "assinatura": "WH_SmodOI0OOzwP9TLT6-QJv9qsiMFhfMqPvNkFSlyBrheoCZYMCrtA7ZE-D3ElEpgENhHTKTzGjjM7dRgEIAg",
-  "notas": "Contagem regressiva no estilo Palco: número grande alternando com as suas frases em letras grandes em degrau, paletas de cor prontas, e os 10 segundos finais em destaque.",
+  "versao": "10.14",
+  "arquivo": "lumen-10.14.pacote",
+  "sha256": "d6377007d0c48f26be7d28f749787264d21b09b0185b53903ee097e52f745914",
+  "assinatura": "TGQRT_mjz1NHOsUY2XtBBNa_dKViB6gBVl64jz4gd-IIjnXFIgaU7ufPxE36HJHSl9RZuYdz3ewOp5nbuweqAg",
+  "notas": "Aba Avisos reorganizada: controles na faixa de cima, fila com a prévia à esquerda e os quadros ocupando a tela; Descanso de tela com prévia mini e as artes na tela toda.",
   "publicado": "2026-10-23"
 }
