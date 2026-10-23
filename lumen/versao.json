@@ -1,8 +1,8 @@
 {
-  "versao": "10.16.1",
-  "arquivo": "lumen-10.16.1.pacote",
-  "sha256": "f3995381b2c482d5c73ab12f238e6c3ba7e02f8a206001b93dc949a77f57e1ef",
-  "assinatura": "_CsRJt3pgXE0opEns11FYt3UGsqAwJg2WJOkjUk0RsLka6FqL_ZVjhaXtJBTY7IEs3XNhY7kQKbItnCm03J0CA",
-  "notas": "Avisos: com Miniaturas grandes os quadros ficam no tamanho certo e a lista rola (antes ficavam espremidos).",
+  "versao": "10.17",
+  "arquivo": "lumen-10.17.pacote",
+  "sha256": "ebb1644ca4eb4199e3d9dc1574f7e55224e85ecacc56add6d44a4ba0f2f9162d",
+  "assinatura": "35XJHmGJVUGJA9IQ7rW25bNzPTd7wtoqU7cGwerHipe28WLaMk-zMBwqUX-22nwRL4SXRramz5gWnbBdFvlpDg",
+  "notas": "Letra: duas linhas em branco seguidas viram um quadro em branco (pausa para o instrumental).",
   "publicado": "2026-10-23"
 }
