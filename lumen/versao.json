@@ -1,8 +1,8 @@
 {
-  "versao": "10.18.1",
-  "arquivo": "lumen-10.18.1.pacote",
-  "sha256": "fd972fa96b8c8143339571daf4b67731e2b26ecce4bee93450b7714cf8905f1c",
-  "assinatura": "r-aOKsLrRjlus9n9lFOTnZKUUY80J5EPHF1tAURquPBkt1VkpT3_BzHXDOgkyQT3imWwmVgL7thaVV209Os_Cw",
-  "notas": "PowerPoint: o vídeo do slide não toca sozinho; aperte Espaço (ou Avançar / passador) para tocar. O próximo toque vai para o slide seguinte.",
+  "versao": "10.19.1",
+  "arquivo": "lumen-10.19.1.pacote",
+  "sha256": "03044e34f0dbc5e32dc366da67fec365b455e8d5ef331ec3535ccdf5e73d415d",
+  "assinatura": "il-bZgQ_5dTKKbY38OgmB9gB-gPg6zpZpg__knO50DXNIm8yESS3ZL4sawGb-maRMOQwrnrRwUd8ja5m0PvkDg",
+  "notas": "Atalhos das abas com teclas F: F2 Culto, F3 Biblioteca, F4 Avisos, F6 Bíblia, F7 Editor.",
   "publicado": "2026-10-25"
 }
