@@ -1,8 +1,8 @@
 {
-  "versao": "10.17.1",
-  "arquivo": "lumen-10.17.1.pacote",
-  "sha256": "dc004874e6609a3060822c7943ca28dbf6f22a8e7d6b5c2c01cbd36311bcd7fb",
-  "assinatura": "qvmomNwXbtbfYg0_U_yInNDqmUOBL743WlbX4U5Mztg7fNc1FZVOaXCU0i7HKPGxlj7EMSq6HjwRIU42h31pDg",
-  "notas": "Descanso de tela: o Esc não apaga mais a arte do telão; ela só sai quando você escolher outra (ou pelo botão Tela preta).",
-  "publicado": "2026-10-23"
+  "versao": "10.18.1",
+  "arquivo": "lumen-10.18.1.pacote",
+  "sha256": "fd972fa96b8c8143339571daf4b67731e2b26ecce4bee93450b7714cf8905f1c",
+  "assinatura": "r-aOKsLrRjlus9n9lFOTnZKUUY80J5EPHF1tAURquPBkt1VkpT3_BzHXDOgkyQT3imWwmVgL7thaVV209Os_Cw",
+  "notas": "PowerPoint: o vídeo do slide não toca sozinho; aperte Espaço (ou Avançar / passador) para tocar. O próximo toque vai para o slide seguinte.",
+  "publicado": "2026-10-25"
 }
