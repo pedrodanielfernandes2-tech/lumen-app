@@ -1,8 +1,8 @@
 {
-  "versao": "10.21.1",
-  "arquivo": "lumen-10.21.1.pacote",
-  "sha256": "866a52ca42e79988c923e56ff19d58e807b7fcfd249be95179331437f7c2581d",
-  "assinatura": "ll4M-QdyFZh_iBwsumf9WmVEe9rlyu4pfiG_HDP7zo_Z55qJOhhse-MZ9sCaXda3Eo0jwXU4kfbjE1FqFKJkBw",
-  "notas": "A palavra cursiva dourada não cobre mais a linha de cima. Nos Temas: ajuste Mais junto / Normal / Mais solto.",
+  "versao": "10.21.2",
+  "arquivo": "lumen-10.21.2.pacote",
+  "sha256": "cc86618fac2b562db0cf71af4cb08e1105b7131bf5d946439dcc629bfaef4688",
+  "assinatura": "9SFWISY0mJw-3IDJtx2oVdxhc427in6SefnUfWcW-aNaTmvKgpvwqb44NdO8YpzJVg953c2S2YgxO5JYhV3JAg",
+  "notas": "Busca de louvores na aba Culto bem mais rápida.",
   "publicado": "2026-10-30"
 }
