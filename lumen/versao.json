@@ -1,8 +1,8 @@
 {
-  "versao": "10.20",
-  "arquivo": "lumen-10.20.pacote",
-  "sha256": "d49771426a1063d7abcd35443793e58e281ea678ed5e48ac4e3e581b4ea0bd16",
-  "assinatura": "zWfwIdlE7XvB0_csd3vdaPUaXTcDGkmxf2X3tzJXWhfhO29BeGaUeUYDGOBN0K8IrR0_onsf2iyN5Cg-HXHhBg",
-  "notas": "Sugerir fundo: o Lumen escolhe fundos pela letra do louvor (um louvor ou o culto todo). Etiquetas nos temas.",
+  "versao": "10.21",
+  "arquivo": "lumen-10.21.pacote",
+  "sha256": "c35045bf0e899a89469daebbc6a023728fd967e6842e714abcc7465d46c01b7c",
+  "assinatura": "rT6loc9_5cQjHVMG907gsPvqS8WSVOthMYysBlKsuKgtBnWL2W6OD8y4uXz-MMkjVmw0sh4nM2YxNDxBgTNXAw",
+  "notas": "Sugerir fundo agora cria fundos vivos na hora pela letra do louvor, com o estilo da letra sugerido. Correção da animação Brilho (a estrofe não reenquadra mais).",
   "publicado": "2026-10-30"
 }
