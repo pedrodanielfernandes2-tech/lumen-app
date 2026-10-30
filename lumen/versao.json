@@ -1,8 +1,8 @@
 {
-  "versao": "10.21",
-  "arquivo": "lumen-10.21.pacote",
-  "sha256": "c35045bf0e899a89469daebbc6a023728fd967e6842e714abcc7465d46c01b7c",
-  "assinatura": "rT6loc9_5cQjHVMG907gsPvqS8WSVOthMYysBlKsuKgtBnWL2W6OD8y4uXz-MMkjVmw0sh4nM2YxNDxBgTNXAw",
-  "notas": "Sugerir fundo agora cria fundos vivos na hora pela letra do louvor, com o estilo da letra sugerido. Correção da animação Brilho (a estrofe não reenquadra mais).",
+  "versao": "10.21.1",
+  "arquivo": "lumen-10.21.1.pacote",
+  "sha256": "866a52ca42e79988c923e56ff19d58e807b7fcfd249be95179331437f7c2581d",
+  "assinatura": "ll4M-QdyFZh_iBwsumf9WmVEe9rlyu4pfiG_HDP7zo_Z55qJOhhse-MZ9sCaXda3Eo0jwXU4kfbjE1FqFKJkBw",
+  "notas": "A palavra cursiva dourada não cobre mais a linha de cima. Nos Temas: ajuste Mais junto / Normal / Mais solto.",
   "publicado": "2026-10-30"
 }
