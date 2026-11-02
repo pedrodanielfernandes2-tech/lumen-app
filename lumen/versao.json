@@ -1,8 +1,8 @@
 {
-  "versao": "10.24.2",
-  "arquivo": "lumen-10.24.2.pacote",
-  "sha256": "a1553ec3186676b86c48164fb50a106f339c1a2280df90f51b5c98d4cd70b9de",
-  "assinatura": "DCUgybCs3bxV-3pSJYjsAw73uhzTNrTN-fmRA-NoFlScv9zkNVNMTfWuRp1OWndtYnSBKxvQcbsSyPX-YrFFBA",
-  "notas": "Culto: ao recolher a prévia do telão, os botões e o aviso embaixo também recolhem.",
+  "versao": "10.24.3",
+  "arquivo": "lumen-10.24.3.pacote",
+  "sha256": "af2aea1481508c734b3a1a52144362c1cdd4a82b9184e7d28e22d76ada8b0ac0",
+  "assinatura": "_KInmQawmzWQA7L43ck5oht_NYKJvUajhtgj5IgHU3Ow1bwIq7lTBjJ8VHn_v9QTQSr9Mg87BiaoJEcBaMEXAA",
+  "notas": "Telão e retorno não aparecem mais na barra de tarefas e não fecham sem querer.",
   "publicado": "2026-11-02"
 }
