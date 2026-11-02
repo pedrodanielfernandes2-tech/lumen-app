@@ -1,8 +1,8 @@
 {
-  "versao": "10.24.3",
-  "arquivo": "lumen-10.24.3.pacote",
-  "sha256": "af2aea1481508c734b3a1a52144362c1cdd4a82b9184e7d28e22d76ada8b0ac0",
-  "assinatura": "_KInmQawmzWQA7L43ck5oht_NYKJvUajhtgj5IgHU3Ow1bwIq7lTBjJ8VHn_v9QTQSr9Mg87BiaoJEcBaMEXAA",
-  "notas": "Telão e retorno não aparecem mais na barra de tarefas e não fecham sem querer.",
+  "versao": "10.25",
+  "arquivo": "lumen-10.25.pacote",
+  "sha256": "fed00b264994e9eaee241b45e031184323e5b6d0ad5cffd6708a521674e4160b",
+  "assinatura": "S9rhOjWvg8DyrkxzXHW1cudZzjuq0nnGFaJoOuG_quN4qgjr4PgIUxNQ-y5iRp3aSUunDK1bU-Dug2iRzvenDg",
+  "notas": "Tema por quadro: cores embaixo de cada quadrinho da fita (tema do louvor + 3 favoritos), Ctrl+1..4, Shift+clique daqui pra frente, menu ⋯ com repetições, louvor todo, favoritos e fixar no louvor",
   "publicado": "2026-11-02"
 }
