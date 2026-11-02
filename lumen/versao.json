@@ -1,8 +1,8 @@
 {
-  "versao": "10.25",
-  "arquivo": "lumen-10.25.pacote",
-  "sha256": "fed00b264994e9eaee241b45e031184323e5b6d0ad5cffd6708a521674e4160b",
-  "assinatura": "S9rhOjWvg8DyrkxzXHW1cudZzjuq0nnGFaJoOuG_quN4qgjr4PgIUxNQ-y5iRp3aSUunDK1bU-Dug2iRzvenDg",
-  "notas": "Tema por quadro: cores embaixo de cada quadrinho da fita (tema do louvor + 3 favoritos), Ctrl+1..4, Shift+clique daqui pra frente, menu ⋯ com repetições, louvor todo, favoritos e fixar no louvor",
+  "versao": "10.25.1",
+  "arquivo": "lumen-10.25.1.pacote",
+  "sha256": "313f81135612b0120cd24148a4b1268cd4b5571f53127e834d0c4796fb116bd9",
+  "assinatura": "Udvybl8zK9iXGInrEqDYx91gbFiJovNZX2aUVq0SZCy6EGomMogf2h5vW9885LgOhSG5szIz2gkGkFs88kjJAg",
+  "notas": "Ferramentas do culto: agora dá para arrastar os blocos para cima ou para baixo (segurando o título) e usar Alt+setas",
   "publicado": "2026-11-02"
 }
