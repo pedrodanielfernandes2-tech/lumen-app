@@ -1,8 +1,8 @@
 {
-  "versao": "10.25.1",
-  "arquivo": "lumen-10.25.1.pacote",
-  "sha256": "313f81135612b0120cd24148a4b1268cd4b5571f53127e834d0c4796fb116bd9",
-  "assinatura": "Udvybl8zK9iXGInrEqDYx91gbFiJovNZX2aUVq0SZCy6EGomMogf2h5vW9885LgOhSG5szIz2gkGkFs88kjJAg",
-  "notas": "Ferramentas do culto: agora dá para arrastar os blocos para cima ou para baixo (segurando o título) e usar Alt+setas",
+  "versao": "10.26",
+  "arquivo": "lumen-10.26.pacote",
+  "sha256": "7bfa2ebce36d31be7cec335fd8a69a5b7024632549bea9962566d04a0d515588",
+  "assinatura": "czkWEGVb6i-HkKYutHxTcHVpc6-shvL7bRDeGSggtt4EQCZpFXjiX3Y8zjtV04gvkZEUCN6_qL04uoDDUYa8AQ",
+  "notas": "Avisos direto na tela do Culto (um clique projeta), botão Cores (claro, escuro, modo culto e cor de destaque), arrumação de cada pessoa que projeta (escolhida pela escala do dia) e a prévia do telão também muda de lugar",
   "publicado": "2026-11-02"
 }
