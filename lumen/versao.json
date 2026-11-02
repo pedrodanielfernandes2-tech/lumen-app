@@ -1,8 +1,8 @@
 {
-  "versao": "10.21.2",
-  "arquivo": "lumen-10.21.2.pacote",
-  "sha256": "cc86618fac2b562db0cf71af4cb08e1105b7131bf5d946439dcc629bfaef4688",
-  "assinatura": "9SFWISY0mJw-3IDJtx2oVdxhc427in6SefnUfWcW-aNaTmvKgpvwqb44NdO8YpzJVg953c2S2YgxO5JYhV3JAg",
-  "notas": "Busca de louvores na aba Culto bem mais rápida.",
-  "publicado": "2026-10-30"
+  "versao": "10.22",
+  "arquivo": "lumen-10.22.pacote",
+  "sha256": "0e5a7b578e803220e0558261ee1625623de63de7337fd7e706e15374ab2fc2f9",
+  "assinatura": "DzUhaGGhzwdyUqL5WorpTObBVsjGLob7ZGzK9mZypt7KYODDjtb5JNC2f5O4BQCj7LC7qBphKqLA7yv8OKkuAA",
+  "notas": "Bíblia com divisas para ajustar, referência e tamanho da letra, liga/desliga no retorno; avisos em lista; arrastar a programação; mensagem no telão no Culto; F8 e tela preta saem ao mudar de estrofe ou versículo; relógio não aparece no meio do louvor; Esc fecha o Buscar.",
+  "publicado": "2026-11-02"
 }
