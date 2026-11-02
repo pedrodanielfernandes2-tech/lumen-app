@@ -1,8 +1,8 @@
 {
-  "versao": "10.26.1",
-  "arquivo": "lumen-10.26.1.pacote",
-  "sha256": "2fb71effb37a5c19be891ea6067a466781a1d54e8cbc199820eb6b2480e6db84",
-  "assinatura": "hJWRIZ23XT_bbGcnUlkN7rfV5mkLUEOhWctc6k2ecqx-ZOvMv5XIlaBcQlxRn9Y9W62SbgiDxdZoTQcHsGGwAA",
-  "notas": "Clicar em outra estrofe do louvor no ar só troca o slide (a lista e a fita não voltam mais para o começo) e saiu o Quem projeta",
+  "versao": "10.27",
+  "arquivo": "lumen-10.27.pacote",
+  "sha256": "bf2176fa5ee6c7aa63e02deadc1532ac7372a329da66d076bc272c8d7c3f8f36",
+  "assinatura": "Rh0wAEiA2HOujmRx5et-Vg-otpIcKo5fvkdagr9Kc9tCSyBwzr9UROauluuUow1pxA_GNEJEhdm0ger7-X-ZAg",
+  "notas": "Aba Avisos: a lista ocupa a esquerda inteira; prévia menor com os controles, artes, pasta e ordem do lado direito",
   "publicado": "2026-11-02"
 }
