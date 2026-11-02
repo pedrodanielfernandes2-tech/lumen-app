@@ -1,8 +1,8 @@
 {
-  "versao": "10.22",
-  "arquivo": "lumen-10.22.pacote",
-  "sha256": "0e5a7b578e803220e0558261ee1625623de63de7337fd7e706e15374ab2fc2f9",
-  "assinatura": "DzUhaGGhzwdyUqL5WorpTObBVsjGLob7ZGzK9mZypt7KYODDjtb5JNC2f5O4BQCj7LC7qBphKqLA7yv8OKkuAA",
-  "notas": "Bíblia com divisas para ajustar, referência e tamanho da letra, liga/desliga no retorno; avisos em lista; arrastar a programação; mensagem no telão no Culto; F8 e tela preta saem ao mudar de estrofe ou versículo; relógio não aparece no meio do louvor; Esc fecha o Buscar.",
+  "versao": "10.23",
+  "arquivo": "lumen-10.23.pacote",
+  "sha256": "f2a7f942a15a84d0b50d70f07da0c77a9dc04ce33038bed80497ce887d629cd0",
+  "assinatura": "XhtqtwFsqMvX9fP4eIoxbcbarjtRLcvtPHRYflc7JXsl-PN6_2ioZTNXeMErFgXKuH0hZOwE2U0Y0R8eJ-REBw",
+  "notas": "Culto: as ferramentas da coluna do telão viraram blocos que recolhem, com o estado no título e ordem ajustável.",
   "publicado": "2026-11-02"
 }
