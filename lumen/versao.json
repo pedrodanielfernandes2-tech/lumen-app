@@ -1,8 +1,8 @@
 {
-  "versao": "10.23",
-  "arquivo": "lumen-10.23.pacote",
-  "sha256": "f2a7f942a15a84d0b50d70f07da0c77a9dc04ce33038bed80497ce887d629cd0",
-  "assinatura": "XhtqtwFsqMvX9fP4eIoxbcbarjtRLcvtPHRYflc7JXsl-PN6_2ioZTNXeMErFgXKuH0hZOwE2U0Y0R8eJ-REBw",
-  "notas": "Culto: as ferramentas da coluna do telão viraram blocos que recolhem, com o estado no título e ordem ajustável.",
+  "versao": "10.23.1",
+  "arquivo": "lumen-10.23.1.pacote",
+  "sha256": "b609158f5efb2e01e5782e4b95ccb6017f2d1ebd10eca8cc05d4a4a6fd3344dd",
+  "assinatura": "eXuA9AlSGVTiRew2FA83pXnVz7ZHxYPkXN9-lLViTWl805IO6eWmnVrFpIMunJRl1X1b3fQaP5CrctQeydUnAw",
+  "notas": "Púlpito (retorno) agora se chama TV Retorno.",
   "publicado": "2026-11-02"
 }
