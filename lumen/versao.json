@@ -1,8 +1,8 @@
 {
-  "versao": "10.23.3",
-  "arquivo": "lumen-10.23.3.pacote",
-  "sha256": "583760de7bda887c4e1524c5c86d078003433ba215fee767013d806d923d6eaa",
-  "assinatura": "2YUtYEZGO5azLGg4psuOoSz-FExzVnOS9LcStwOes6SkbL0XK9z4IslA85B9k9v5Kitl0r2lHq9c-KIziI3MCA",
-  "notas": "Bíblia: capítulos ocupam só o espaço que precisam e os versículos ficam sempre à vista; livros mais compactos.",
+  "versao": "10.24",
+  "arquivo": "lumen-10.24.pacote",
+  "sha256": "fee530bed10d5a760f9b81a4772b765221f969dea4066f5d1808e3edfdaa60f4",
+  "assinatura": "qPTU1_LcgRdriDd-ZkE4kmxmIB3lyh64dsh84pU3H1Rk639wAtuG-rh5DxnJZ1oQ4YFD2UThPtWt9I7LMdiUBg",
+  "notas": "Bíblia compacta (capítulos e versículos lado a lado, números grandes, ⚙ Opções); menu mais baixo; Harpa começa na capa; prévia do telão recolhível; editor separa as linhas ao colar.",
   "publicado": "2026-11-02"
 }
