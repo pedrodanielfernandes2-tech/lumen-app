@@ -1,8 +1,8 @@
 {
-  "versao": "10.24.1",
-  "arquivo": "lumen-10.24.1.pacote",
-  "sha256": "57f75eaaa0d1b5c3b04156cfd03b26ff768edaf0a535408b0327122243b37d9f",
-  "assinatura": "TfyOb3LEV518gylKgkRPp2LWLr8FJVXXkxO36PTRa7D05258gSr21a-YbstD57xcWK42xxxlhVg-wkIbH4rIDw",
-  "notas": "Editor: o rodapé da letra não fica mais espremido ao usar Separar/Juntar.",
+  "versao": "10.24.2",
+  "arquivo": "lumen-10.24.2.pacote",
+  "sha256": "a1553ec3186676b86c48164fb50a106f339c1a2280df90f51b5c98d4cd70b9de",
+  "assinatura": "DCUgybCs3bxV-3pSJYjsAw73uhzTNrTN-fmRA-NoFlScv9zkNVNMTfWuRp1OWndtYnSBKxvQcbsSyPX-YrFFBA",
+  "notas": "Culto: ao recolher a prévia do telão, os botões e o aviso embaixo também recolhem.",
   "publicado": "2026-11-02"
 }
