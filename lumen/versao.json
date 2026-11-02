@@ -1,8 +1,8 @@
 {
-  "versao": "10.23.1",
-  "arquivo": "lumen-10.23.1.pacote",
-  "sha256": "b609158f5efb2e01e5782e4b95ccb6017f2d1ebd10eca8cc05d4a4a6fd3344dd",
-  "assinatura": "eXuA9AlSGVTiRew2FA83pXnVz7ZHxYPkXN9-lLViTWl805IO6eWmnVrFpIMunJRl1X1b3fQaP5CrctQeydUnAw",
-  "notas": "Púlpito (retorno) agora se chama TV Retorno.",
+  "versao": "10.23.2",
+  "arquivo": "lumen-10.23.2.pacote",
+  "sha256": "18512dae365c6fd7e2486c45440eab07e925ff30c46c878548fa699e3896ea34",
+  "assinatura": "W5uzNqA-JpkSFBBKIJJ82DWRjCzAqLd40d8qWrQhKVZ5w-fpKOE70h5IgR8k4deCBUB_NmrjIVRNX1h1t3PLAQ",
+  "notas": "TV Retorno: escolha a cor normal do cronômetro e a cor de tempo esgotado.",
   "publicado": "2026-11-02"
 }
