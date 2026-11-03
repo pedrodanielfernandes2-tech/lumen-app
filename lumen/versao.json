@@ -1,8 +1,8 @@
 {
-  "versao": "10.27",
-  "arquivo": "lumen-10.27.pacote",
-  "sha256": "bf2176fa5ee6c7aa63e02deadc1532ac7372a329da66d076bc272c8d7c3f8f36",
-  "assinatura": "Rh0wAEiA2HOujmRx5et-Vg-otpIcKo5fvkdagr9Kc9tCSyBwzr9UROauluuUow1pxA_GNEJEhdm0ger7-X-ZAg",
-  "notas": "Aba Avisos: a lista ocupa a esquerda inteira; prévia menor com os controles, artes, pasta e ordem do lado direito",
-  "publicado": "2026-11-02"
+  "versao": "10.28",
+  "arquivo": "lumen-10.28.pacote",
+  "sha256": "3df20c31c6d9c59507ecf4bde505de553ca9d164ff7b2070d698e0acaeddc72f",
+  "assinatura": "oYW3CYPStBryIdssRKbM9gv6PV5me6LBwTNx9W2qq5BmHXSAKmfnFVeKyP774WJNnGr4_0eK842KTz5Q8BnTBw",
+  "notas": "Bordas neon nos louvores: bloco no Culto (liga/desliga, modelo, animação, cores, velocidade, ritmo), bordas salvas no tema, editor de formas e modo leve",
+  "publicado": "2026-11-03"
 }
