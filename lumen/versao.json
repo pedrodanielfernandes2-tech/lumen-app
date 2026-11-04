@@ -1,8 +1,8 @@
 {
-  "versao": "10.28",
-  "arquivo": "lumen-10.28.pacote",
-  "sha256": "3df20c31c6d9c59507ecf4bde505de553ca9d164ff7b2070d698e0acaeddc72f",
-  "assinatura": "oYW3CYPStBryIdssRKbM9gv6PV5me6LBwTNx9W2qq5BmHXSAKmfnFVeKyP774WJNnGr4_0eK842KTz5Q8BnTBw",
-  "notas": "Bordas neon nos louvores: bloco no Culto (liga/desliga, modelo, animação, cores, velocidade, ritmo), bordas salvas no tema, editor de formas e modo leve",
-  "publicado": "2026-11-03"
+  "versao": "10.29",
+  "arquivo": "lumen-10.29.pacote",
+  "sha256": "d221e1e5eddca377c47d5e920f904b6ace5862442e563dc0016e8b9bdf4c10d4",
+  "assinatura": "WX0HG1KUdQzwu6tKXfm7MXrrirdlBRbcEo2LM7blxUa5rXSBgyagojMKJUZt-nxI3AnaPp_igugvIyRZ5JKADA",
+  "notas": "Áudio da Mídia entra e sai suave; playback (MP3) ligado ao louvor que toca só no som do computador e desce suave ao trocar de louvor",
+  "publicado": "2026-11-04"
 }
