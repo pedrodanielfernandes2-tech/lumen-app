@@ -1,8 +1,8 @@
 {
-  "versao": "10.29",
-  "arquivo": "lumen-10.29.pacote",
-  "sha256": "d221e1e5eddca377c47d5e920f904b6ace5862442e563dc0016e8b9bdf4c10d4",
-  "assinatura": "WX0HG1KUdQzwu6tKXfm7MXrrirdlBRbcEo2LM7blxUa5rXSBgyagojMKJUZt-nxI3AnaPp_igugvIyRZ5JKADA",
-  "notas": "Áudio da Mídia entra e sai suave; playback (MP3) ligado ao louvor que toca só no som do computador e desce suave ao trocar de louvor",
+  "versao": "10.30",
+  "arquivo": "lumen-10.30.pacote",
+  "sha256": "c1e807da7f7e3b00161080e417896e3aa6145158ecf5689fe552a8ddd71c11a1",
+  "assinatura": "xyob2SWMrTFd9SM8i30Hc7j1zWg3BTk4Ly3OBlZdb9o6KdVttVUbXJx1cfmvjHKnOjlA6wJrZxjxPwGuCYCrBg",
+  "notas": "Desempenho: miniaturas sem animação escondida, louvor entra no telão na hora e telas do Culto e da Biblioteca bem mais rápidas com muitos louvores",
   "publicado": "2026-11-04"
 }
