@@ -1,8 +1,8 @@
 {
-  "versao": "10.32",
-  "arquivo": "lumen-10.32.pacote",
-  "sha256": "d102e215a5e417b1fbd0948238e08bd294e7cbd43f3225a699874ddf67494fb4",
-  "assinatura": "H9BrFsoUCIbXAEPX8_1NkVTAooPweBjxHwxs8wM3bNcEAmWVygMypYKKz0cV9_k4JDXXg9JA11D5H21a3rSXBA",
-  "notas": "Personalizar a tela do Culto (escolher e ordenar as ferramentas) e blocos novos de Sorteio e Contagem regressiva no Culto",
+  "versao": "10.33",
+  "arquivo": "lumen-10.33.pacote",
+  "sha256": "5d777697ce69c7cd68c29ff3f60d05342e996f5a0cc65cd9f21c1d7c618f932f",
+  "assinatura": "9N1Eq1Jd0F9UHiREcncsHHReHfvILtk-4xOueQCwyYhtbB8z4ypkbCYqKFDg1bQWV0eJ7rAotGfzPGpStfsyDA",
+  "notas": "A barra das Ferramentas do culto agora fica no topo da coluna, acima da prévia do telão",
   "publicado": "2026-11-05"
 }
