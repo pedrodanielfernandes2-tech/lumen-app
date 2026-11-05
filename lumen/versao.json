@@ -1,8 +1,8 @@
 {
-  "versao": "10.31",
-  "arquivo": "lumen-10.31.pacote",
-  "sha256": "e2fc3b7d82c82560fe16078a12bdf5cb6dd539bd70b8ef7e178dac6ab7b0cab6",
-  "assinatura": "su9Gt_xp_uHchA_LCPHMU9lRjkdKMF-sOpLD0-mP0YHwpZi13hzmsIPc8xQrBbaDz-PrwRxDzNYLbQKcxFy9CA",
-  "notas": "Fontes dos temas agora vêm dentro do Lumen: a letra sai com a fonte certa mesmo sem internet",
-  "publicado": "2026-11-04"
+  "versao": "10.32",
+  "arquivo": "lumen-10.32.pacote",
+  "sha256": "d102e215a5e417b1fbd0948238e08bd294e7cbd43f3225a699874ddf67494fb4",
+  "assinatura": "H9BrFsoUCIbXAEPX8_1NkVTAooPweBjxHwxs8wM3bNcEAmWVygMypYKKz0cV9_k4JDXXg9JA11D5H21a3rSXBA",
+  "notas": "Personalizar a tela do Culto (escolher e ordenar as ferramentas) e blocos novos de Sorteio e Contagem regressiva no Culto",
+  "publicado": "2026-11-05"
 }
