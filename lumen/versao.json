@@ -1,8 +1,8 @@
 {
-  "versao": "10.33",
-  "arquivo": "lumen-10.33.pacote",
-  "sha256": "5d777697ce69c7cd68c29ff3f60d05342e996f5a0cc65cd9f21c1d7c618f932f",
-  "assinatura": "9N1Eq1Jd0F9UHiREcncsHHReHfvILtk-4xOueQCwyYhtbB8z4ypkbCYqKFDg1bQWV0eJ7rAotGfzPGpStfsyDA",
-  "notas": "A barra das Ferramentas do culto agora fica no topo da coluna, acima da prévia do telão",
-  "publicado": "2026-11-05"
+  "versao": "10.34",
+  "arquivo": "lumen-10.34.pacote",
+  "sha256": "64883c12cf02a7b06a7a9d2ecd1008780c9fda7b13336f8deb77b114244bfca3",
+  "assinatura": "reTce7lxB23T4kL9lF9yHUnadv_8UWTmoLsFUrBto3o_CjFQO3haMl9abBLfF0aHsPoF5OCim6goOrYwZw0bAA",
+  "notas": "Telão abre junto com o Lumen já com a arte de descanso (ou preto): o primeiro louvor entra na hora. Esc deixa o telão na arte de descanso ou preto (não fica mais só o fundo do tema). Esc num aviso por cima do branco do fim do louvor também encerra. Tela preta agora esconde o fundo animado do tema. Esc funciona mesmo com texto na caixa de busca.",
+  "publicado": "2026-11-06"
 }
