@@ -1,8 +1,8 @@
 {
-  "versao": "10.36",
-  "arquivo": "lumen-10.36.pacote",
-  "sha256": "f3b72111e60200f68ca1db4a9457d808c8903e038309b3e3546e111a8c8c2954",
-  "assinatura": "padZg9B-oXGP8uXVPcWgDuDRoSnJ9tBUDh910SEYzjbbaAaMGQn6D4hgBL9D9y8RQhSxGBE3_b9ZQo6K1EEWDw",
-  "notas": "Bíblia com 4 visuais à escolha (Clássico, Cascata, Estante e Passo a passo), no topo da aba. Cada computador lembra o seu. Busca, F6, atalhos e painel do telão iguais em todos.",
+  "versao": "10.37",
+  "arquivo": "lumen-10.37.pacote",
+  "sha256": "4db987f0986cef9c8b9a8fc69f743ec3fc20bf5334ad5239f91422325e726f35",
+  "assinatura": "YsZFzxjVjhiu62gsToAwGgD6G79jBMFL4qyqEosGdQZKOVG_9GQ6-KJiA_kigEhKCxvAFnfjmfw_HKRfF0ysDw",
+  "notas": "Bíblia: barra do topo arrumada, todos os botões na mesma altura e alinhados; versículos de hoje sem barra de rolagem (role com a roda do mouse).",
   "publicado": "2026-11-06"
 }
