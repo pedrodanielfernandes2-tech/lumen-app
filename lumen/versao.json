@@ -1,8 +1,8 @@
 {
-  "versao": "10.35",
-  "arquivo": "lumen-10.35.pacote",
-  "sha256": "5aeb04052296a263cbeb0344d6d1539644cfbda48215ea76a2125ab085276f62",
-  "assinatura": "KfLvyOAafPpffKL9isEH8qRauuKmkcIDrVmpcgflmboxG0GEG0aDfP7wo1CsP-SndmeK7WUzHEZ4ygACZJ3HDQ",
-  "notas": "Fundo de vídeo sem tela preta: o telão deixa prontos os vídeos dos próximos louvores e só troca quando o novo já tem imagem (antes ~1,6 s de preto, agora ~0,1 s). O telão toca só 1 vídeo (antes tocava 4 cópias escondidas).",
+  "versao": "10.36",
+  "arquivo": "lumen-10.36.pacote",
+  "sha256": "f3b72111e60200f68ca1db4a9457d808c8903e038309b3e3546e111a8c8c2954",
+  "assinatura": "padZg9B-oXGP8uXVPcWgDuDRoSnJ9tBUDh910SEYzjbbaAaMGQn6D4hgBL9D9y8RQhSxGBE3_b9ZQo6K1EEWDw",
+  "notas": "Bíblia com 4 visuais à escolha (Clássico, Cascata, Estante e Passo a passo), no topo da aba. Cada computador lembra o seu. Busca, F6, atalhos e painel do telão iguais em todos.",
   "publicado": "2026-11-06"
 }
