@@ -1,8 +1,8 @@
 {
-  "versao": "10.34",
-  "arquivo": "lumen-10.34.pacote",
-  "sha256": "64883c12cf02a7b06a7a9d2ecd1008780c9fda7b13336f8deb77b114244bfca3",
-  "assinatura": "reTce7lxB23T4kL9lF9yHUnadv_8UWTmoLsFUrBto3o_CjFQO3haMl9abBLfF0aHsPoF5OCim6goOrYwZw0bAA",
-  "notas": "Telão abre junto com o Lumen já com a arte de descanso (ou preto): o primeiro louvor entra na hora. Esc deixa o telão na arte de descanso ou preto (não fica mais só o fundo do tema). Esc num aviso por cima do branco do fim do louvor também encerra. Tela preta agora esconde o fundo animado do tema. Esc funciona mesmo com texto na caixa de busca.",
+  "versao": "10.35",
+  "arquivo": "lumen-10.35.pacote",
+  "sha256": "5aeb04052296a263cbeb0344d6d1539644cfbda48215ea76a2125ab085276f62",
+  "assinatura": "KfLvyOAafPpffKL9isEH8qRauuKmkcIDrVmpcgflmboxG0GEG0aDfP7wo1CsP-SndmeK7WUzHEZ4ygACZJ3HDQ",
+  "notas": "Fundo de vídeo sem tela preta: o telão deixa prontos os vídeos dos próximos louvores e só troca quando o novo já tem imagem (antes ~1,6 s de preto, agora ~0,1 s). O telão toca só 1 vídeo (antes tocava 4 cópias escondidas).",
   "publicado": "2026-11-06"
 }
