@@ -1,8 +1,8 @@
 {
-  "versao": "10.38",
-  "arquivo": "lumen-10.38.pacote",
-  "sha256": "beb6498e14038e7907f7d6bab33281bf5980b9b7fb9396849ddcebdb7ece6df0",
-  "assinatura": "jienqGT6rYm4MY7xqzJ7U_xdcPOjPdd1lK69jAZebPBgNee08pCOVFAc6XJCmn3tDiuT67_xnWlpZSnty5p4Dg",
-  "notas": "App Android do controle pelo celular: volume + avança, volume − volta, acha o computador sozinho no Wi-Fi e lembra dele. Instale pelo QR Code em Ferramentas › Celular.",
+  "versao": "10.39",
+  "arquivo": "lumen-10.39.pacote",
+  "sha256": "ec394c628bc13b4d6053c1d54d34566b350589b031ee8902f52a8ced658e688f",
+  "assinatura": "XQGae--OCZrXnke9VfZ-BVDR2J8tV8cX2t3J5qW-BHE16TXI1DyhINyDjT6qqAbZSBZ1JLmQAD77DdZ8l13HCw",
+  "notas": "App Android: volume − avança e volume + volta (dá para inverter em Mais). O celular avisa quando há versão nova do app.",
   "publicado": "2026-11-07"
 }
