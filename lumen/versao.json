@@ -1,8 +1,8 @@
 {
-  "versao": "10.37",
-  "arquivo": "lumen-10.37.pacote",
-  "sha256": "4db987f0986cef9c8b9a8fc69f743ec3fc20bf5334ad5239f91422325e726f35",
-  "assinatura": "YsZFzxjVjhiu62gsToAwGgD6G79jBMFL4qyqEosGdQZKOVG_9GQ6-KJiA_kigEhKCxvAFnfjmfw_HKRfF0ysDw",
-  "notas": "Bíblia: barra do topo arrumada, todos os botões na mesma altura e alinhados; versículos de hoje sem barra de rolagem (role com a roda do mouse).",
-  "publicado": "2026-11-06"
+  "versao": "10.38",
+  "arquivo": "lumen-10.38.pacote",
+  "sha256": "beb6498e14038e7907f7d6bab33281bf5980b9b7fb9396849ddcebdb7ece6df0",
+  "assinatura": "jienqGT6rYm4MY7xqzJ7U_xdcPOjPdd1lK69jAZebPBgNee08pCOVFAc6XJCmn3tDiuT67_xnWlpZSnty5p4Dg",
+  "notas": "App Android do controle pelo celular: volume + avança, volume − volta, acha o computador sozinho no Wi-Fi e lembra dele. Instale pelo QR Code em Ferramentas › Celular.",
+  "publicado": "2026-11-07"
 }
