@@ -1,8 +1,8 @@
 {
-  "versao": "10.39",
-  "arquivo": "lumen-10.39.pacote",
-  "sha256": "ec394c628bc13b4d6053c1d54d34566b350589b031ee8902f52a8ced658e688f",
-  "assinatura": "XQGae--OCZrXnke9VfZ-BVDR2J8tV8cX2t3J5qW-BHE16TXI1DyhINyDjT6qqAbZSBZ1JLmQAD77DdZ8l13HCw",
-  "notas": "App Android: volume − avança e volume + volta (dá para inverter em Mais). O celular avisa quando há versão nova do app.",
-  "publicado": "2026-11-07"
+  "versao": "10.40",
+  "arquivo": "lumen-10.40.pacote",
+  "sha256": "e3baecce8b8f4c1dc12efbf75eeedb88888bb44494f21ec5bcf21accd014d4fb",
+  "assinatura": "jupex4e62fibksRihUNuIYQCuxTw5DV-hR_1dMxmaA9nfbc3Qfl_ifSjZtM_4fHgfXqANCERmx8Kx_ypcKG4BQ",
+  "notas": "Temas: botão Sugerir fundo (escolha o louvor e o Lumen sugere fundos pela letra, igual ao Culto).",
+  "publicado": "2026-11-08"
 }
