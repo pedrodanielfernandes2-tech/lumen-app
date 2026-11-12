@@ -1,8 +1,8 @@
 {
-  "versao": "10.42",
-  "arquivo": "lumen-10.42.pacote",
-  "sha256": "564bd201087f53a7704a9e107c99d6c002ac677d946433bd818c7a701d628ad6",
-  "assinatura": "wF8Ka5ElXSLWPwJvsfZppVzzq7Vb4DGfpGcQ0e7Sdc4oNA9rFOftpl0ei6ttJ2aM7j0y4OzvnjcYp4SVEESTBA",
-  "notas": "Temas reorganizado: prévia à esquerda e ajustes à direita, cabe na tela do notebook sem rolar. Etiquetas do Sugerir fundo recolhidas numa linha (Editar). Novo tema em dois passos: primeiro o fundo, depois a letra. Novo botão Usar em louvores para aplicar o tema a vários louvores de uma vez.",
+  "versao": "10.43",
+  "arquivo": "lumen-10.43.pacote",
+  "sha256": "71293eec12a54d7b724f6a2cfbf52a638de00a9237b759e1097830f0386346b0",
+  "assinatura": "k6XTBvK_CNcM5--YKu09waRWMOSuli1OnVnTLyghKU32hbq-GJf051B04wiJoJCeQv9fFwM5EkrBlI2ZlzTYBg",
+  "notas": "Corrige a palavra cursiva que aparecia com o alto da letra cortado (ex.: Great Vibes).",
   "publicado": "2026-11-12"
 }
