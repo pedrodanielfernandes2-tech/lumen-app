@@ -1,8 +1,8 @@
 {
-  "versao": "10.41",
-  "arquivo": "lumen-10.41.pacote",
-  "sha256": "2ee6838181f2ac3b049f72872d2e50e1050628c3eacb4e1c66b583138f89951e",
-  "assinatura": "UblYK-tinH3jY8KJa4THZh7CjHlKZ5SjcbN23fTkekiyiCP1Q7_V4B8QlB_SfXuc4VmiBNyFYRH0L8zSOgGkAA",
-  "notas": "Estabilidade: o painel não toca mais vídeos de fundo em prévias escondidas (alivia a placa de vídeo); se o telão ou o retorno cair, reabre sozinho com o que estava no ar; registro de diagnóstico em Ferramentas › Monitores.",
-  "publicado": "2026-11-09"
+  "versao": "10.42",
+  "arquivo": "lumen-10.42.pacote",
+  "sha256": "564bd201087f53a7704a9e107c99d6c002ac677d946433bd818c7a701d628ad6",
+  "assinatura": "wF8Ka5ElXSLWPwJvsfZppVzzq7Vb4DGfpGcQ0e7Sdc4oNA9rFOftpl0ei6ttJ2aM7j0y4OzvnjcYp4SVEESTBA",
+  "notas": "Temas reorganizado: prévia à esquerda e ajustes à direita, cabe na tela do notebook sem rolar. Etiquetas do Sugerir fundo recolhidas numa linha (Editar). Novo tema em dois passos: primeiro o fundo, depois a letra. Novo botão Usar em louvores para aplicar o tema a vários louvores de uma vez.",
+  "publicado": "2026-11-12"
 }
