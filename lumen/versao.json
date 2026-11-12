@@ -1,8 +1,8 @@
 {
-  "versao": "10.43",
-  "arquivo": "lumen-10.43.pacote",
-  "sha256": "71293eec12a54d7b724f6a2cfbf52a638de00a9237b759e1097830f0386346b0",
-  "assinatura": "k6XTBvK_CNcM5--YKu09waRWMOSuli1OnVnTLyghKU32hbq-GJf051B04wiJoJCeQv9fFwM5EkrBlI2ZlzTYBg",
-  "notas": "Corrige a palavra cursiva que aparecia com o alto da letra cortado (ex.: Great Vibes).",
+  "versao": "10.44",
+  "arquivo": "lumen-10.44.pacote",
+  "sha256": "00e111597ad43206fd9004de9dd9a78eadb6bcffa52b4d530ec3875eee98c5ff",
+  "assinatura": "92-yUnRDQEXstMg3jNzazV-6eW_RFzeNyZq3gLONkxgA-nA1MFQFLN68DHqW35Nr-eyD-Mx-mRS2GCDcj_YZCw",
+  "notas": "Programação: adicionar louvor por busca. Textos do telão e da biblioteca atualizados para o aplicativo. Cabeçalho do telão no Culto sem corte. Miniaturas da capa no Editor repintam quando a fonte do tema carrega. Campo da Bíblia sem texto cortado.",
   "publicado": "2026-11-12"
 }
