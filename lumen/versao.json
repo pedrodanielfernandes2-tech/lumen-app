@@ -1,8 +1,8 @@
 {
-  "versao": "10.44",
-  "arquivo": "lumen-10.44.pacote",
-  "sha256": "00e111597ad43206fd9004de9dd9a78eadb6bcffa52b4d530ec3875eee98c5ff",
-  "assinatura": "92-yUnRDQEXstMg3jNzazV-6eW_RFzeNyZq3gLONkxgA-nA1MFQFLN68DHqW35Nr-eyD-Mx-mRS2GCDcj_YZCw",
-  "notas": "Programação: adicionar louvor por busca. Textos do telão e da biblioteca atualizados para o aplicativo. Cabeçalho do telão no Culto sem corte. Miniaturas da capa no Editor repintam quando a fonte do tema carrega. Campo da Bíblia sem texto cortado.",
-  "publicado": "2026-11-12"
+ "versao": "10.45",
+ "arquivo": "lumen-10.45.pacote",
+ "sha256": "426dbfeb0e37fbf14dab8e068d980d9deea1cd8466e0e6e001aeddb0538eb3db",
+ "assinatura": "LouXGbhugSsPqzT5ORnmYkvjkrf7iPdbt_f-LqzTltMGvBQh2MP_RHS58f4TPsPI8WHtr-4k09PXKXgbKOlPCw",
+ "notas": "Placa de vídeo: quando ela reinicia, o telão se redesenha sozinho e um aviso aparece. Novo Modo leve em Ferramentas › Monitores para placa fraca. Registro de diagnóstico anota o que estava no ar.",
+ "publicado": "2026-11-16"
 }
