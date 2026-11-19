@@ -1,8 +1,8 @@
 {
- "versao": "10.45",
- "arquivo": "lumen-10.45.pacote",
- "sha256": "426dbfeb0e37fbf14dab8e068d980d9deea1cd8466e0e6e001aeddb0538eb3db",
- "assinatura": "LouXGbhugSsPqzT5ORnmYkvjkrf7iPdbt_f-LqzTltMGvBQh2MP_RHS58f4TPsPI8WHtr-4k09PXKXgbKOlPCw",
- "notas": "Placa de vídeo: quando ela reinicia, o telão se redesenha sozinho e um aviso aparece. Novo Modo leve em Ferramentas › Monitores para placa fraca. Registro de diagnóstico anota o que estava no ar.",
- "publicado": "2026-11-16"
+ "versao": "10.46",
+ "arquivo": "lumen-10.46.pacote",
+ "sha256": "0614c0193b999b6a5b3cbc2b722802be0feeeff4961452f8e1a191d71c804aa1",
+ "assinatura": "fX9PfV7kjVzpz1fcJPmmFgwiYykyKnc4nuUS2kwSIDyb2lxLVGDs3UfuaMocke3IjpDhimzs7equt8yyL-PCCQ",
+ "notas": "Biblioteca: importa os arquivos de música .mufl do Holyrics (um ou vários de uma vez), além do .json.",
+ "publicado": "2026-11-19"
 }
