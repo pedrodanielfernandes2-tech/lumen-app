@@ -1,8 +1,8 @@
 {
- "versao": "10.46",
- "arquivo": "lumen-10.46.pacote",
- "sha256": "0614c0193b999b6a5b3cbc2b722802be0feeeff4961452f8e1a191d71c804aa1",
- "assinatura": "fX9PfV7kjVzpz1fcJPmmFgwiYykyKnc4nuUS2kwSIDyb2lxLVGDs3UfuaMocke3IjpDhimzs7equt8yyL-PCCQ",
- "notas": "Biblioteca: importa os arquivos de música .mufl do Holyrics (um ou vários de uma vez), além do .json.",
+ "versao": "10.47",
+ "arquivo": "lumen-10.47.pacote",
+ "sha256": "1a3b4ed0205be2b505ad2de9672c63224701c2e007e935735bf4d473dae680b9",
+ "assinatura": "5qM0M5BotSdhVTEx3Y11-_yPVY-5ZhmtEoM70DkFfVQyzo3UVd2uYffdgHGyxD9AReZQQDli3jL-KeIT6XsLCA",
+ "notas": "TV Retorno: nova opção Sim/Não para mostrar a arte do Descanso de tela no retorno.",
  "publicado": "2026-11-19"
 }
