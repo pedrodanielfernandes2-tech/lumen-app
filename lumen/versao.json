@@ -1,8 +1,8 @@
 {
- "versao": "10.47",
- "arquivo": "lumen-10.47.pacote",
- "sha256": "1a3b4ed0205be2b505ad2de9672c63224701c2e007e935735bf4d473dae680b9",
- "assinatura": "5qM0M5BotSdhVTEx3Y11-_yPVY-5ZhmtEoM70DkFfVQyzo3UVd2uYffdgHGyxD9AReZQQDli3jL-KeIT6XsLCA",
- "notas": "TV Retorno: nova opção Sim/Não para mostrar a arte do Descanso de tela no retorno.",
+ "versao": "10.48",
+ "arquivo": "lumen-10.48.pacote",
+ "sha256": "bd01b5bcd9a17a9d1b2a189ed728c0c29334a0b461feffe1e0eb264ffc17bce6",
+ "assinatura": "aCJLpKltOBHidCQk9LUWx2nmbwLb3JSJohWwvxHxEMvUCuvjVfBlIzkWA_v4mp6RCbpH7MIOfeHWr-iy14_vBw",
+ "notas": "Programação: cada data tem a sua lista. Num dia novo o culto começa limpo (ou com o que você programou para aquele dia); a lista do culto anterior fica guardada na data dela.",
  "publicado": "2026-11-19"
 }
