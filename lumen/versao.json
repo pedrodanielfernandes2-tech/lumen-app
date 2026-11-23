@@ -1,8 +1,8 @@
 {
- "versao": "10.48",
- "arquivo": "lumen-10.48.pacote",
- "sha256": "bd01b5bcd9a17a9d1b2a189ed728c0c29334a0b461feffe1e0eb264ffc17bce6",
- "assinatura": "aCJLpKltOBHidCQk9LUWx2nmbwLb3JSJohWwvxHxEMvUCuvjVfBlIzkWA_v4mp6RCbpH7MIOfeHWr-iy14_vBw",
- "notas": "Programação: cada data tem a sua lista. Num dia novo o culto começa limpo (ou com o que você programou para aquele dia); a lista do culto anterior fica guardada na data dela.",
- "publicado": "2026-11-19"
+ "versao": "10.49",
+ "arquivo": "lumen-10.49.pacote",
+ "sha256": "1d434341a8bd340939fe6a723337077bb064010333cb784c5fdcda16f908b00b",
+ "assinatura": "571et2j-q6X9zQY449e169KHKXl5omAGm3bI65TXjxVyKUrRAOXvnFM0Cs5roKcfVP2D9-55GRaXjWOalxbjBg",
+ "notas": "Placa de vídeo: Modo leve mais forte (fundos animados parados na tela de controle, fundos vivos mais leves no telão) e novo Modo de segurança, que desenha tudo pelo processador, sem a placa de vídeo.",
+ "publicado": "2026-11-23"
 }
